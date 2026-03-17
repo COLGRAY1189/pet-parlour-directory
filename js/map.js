@@ -2,6 +2,7 @@ let map;
 let markersLayer;
 
 function initMap(businesses) {
+  window._currentBusinesses = businesses;
   map = L.map('map', { zoomControl: true }).setView([-33.9249, 18.4241], 11);
 
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -55,5 +56,37 @@ function updateMapMarkers(businesses) {
   if (map) addMarkers(businesses);
 }
 
+let fullscreenMap;
+
+function toggleMapFullscreen() {
+  const overlay = document.getElementById('mapOverlay');
+  const isOpen = overlay.style.display === 'flex';
+  if (isOpen) {
+    overlay.style.display = 'none';
+    document.body.style.overflow = '';
+  } else {
+    overlay.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+    if (!fullscreenMap) {
+      fullscreenMap = L.map('mapFullscreen', { zoomControl: true }).setView([-33.9249, 18.4241], 11);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© <a href="https://openstreetmap.org/copyright">OpenStreetMap</a>',
+        maxZoom: 18
+      }).addTo(fullscreenMap);
+      // Add all current markers to fullscreen map
+      const fsLayer = L.layerGroup().addTo(fullscreenMap);
+      window._currentBusinesses?.forEach(b => {
+        if (!b.lat || !b.lng) return;
+        const m = L.marker([b.lat, b.lng], { icon: createMarkerIcon(b.is_mobile) });
+        m.bindTooltip(b.name, { direction: 'top', offset: [0, -28], className: 'map-tooltip' });
+        m.bindPopup(`<div class="map-popup"><div style="padding:0.875rem;"><div class="map-popup__name">${b.name}</div><div class="map-popup__area">📍 ${b.area}</div>${b.phone ? `<div class="map-popup__phone">📞 ${b.phone}</div>` : ''}<a class="map-popup__link" href="businesses/${b.slug}.html">View full listing →</a></div></div>`, { maxWidth: 220 });
+        fsLayer.addLayer(m);
+      });
+    }
+    setTimeout(() => fullscreenMap.invalidateSize(), 100);
+  }
+}
+
 window.initMap = initMap;
 window.updateMapMarkers = updateMapMarkers;
+window.toggleMapFullscreen = toggleMapFullscreen;

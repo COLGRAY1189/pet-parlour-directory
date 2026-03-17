@@ -147,11 +147,20 @@
       </div>
 
       <!-- Map -->
-      <div class="map-sidebar">
-        <div style="margin-bottom: 0.75rem;">
+      <div class="map-sidebar" id="mapSidebar">
+        <div style="margin-bottom: 0.75rem; display: flex; align-items: center; justify-content: space-between;">
           <div class="section-label">Map View</div>
+          <button id="mapFullscreenBtn" onclick="toggleMapFullscreen()" title="Fullscreen map" style="background:var(--green-deep);color:var(--parchment);border:none;border-radius:6px;padding:0.3rem 0.65rem;font-size:0.75rem;cursor:pointer;font-family:var(--font-body);letter-spacing:0.05em;">⤢ Fullscreen</button>
         </div>
         <div id="map"></div>
+      </div>
+      <!-- Fullscreen map overlay -->
+      <div id="mapOverlay" style="display:none;position:fixed;inset:0;z-index:9999;background:#1C2B1E;flex-direction:column;">
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:0.75rem 1rem;background:var(--green-deep);">
+          <span style="color:var(--parchment);font-family:var(--font-display);font-size:1.1rem;letter-spacing:0.05em;">Map Search</span>
+          <button onclick="toggleMapFullscreen()" style="background:var(--terracotta);color:white;border:none;border-radius:6px;padding:0.35rem 0.8rem;font-size:0.8rem;cursor:pointer;font-family:var(--font-body);">✕ Close</button>
+        </div>
+        <div id="mapFullscreen" style="flex:1;"></div>
       </div>
     </div>
 
