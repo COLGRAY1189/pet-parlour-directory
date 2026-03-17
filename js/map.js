@@ -35,6 +35,7 @@ function addMarkers(businesses) {
   businesses.forEach(b => {
     if (!b.lat || !b.lng) return;
     const marker = L.marker([b.lat, b.lng], { icon: createMarkerIcon(b.is_mobile) });
+    marker.bindTooltip(b.name, { direction: 'top', offset: [0, -28], className: 'map-tooltip' });
     marker.bindPopup(`
       <div class="map-popup">
         ${b.photo_url ? `<img class="map-popup__img" src="${b.photo_url}" alt="${b.name}" onerror="this.style.display='none'">` : ''}
