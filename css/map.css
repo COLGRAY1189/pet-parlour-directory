@@ -1,13 +1,87 @@
 #map {
-  height: 500px;
+  height: 480px;
   border-radius: var(--radius-md);
-  border: 1px solid var(--color-border);
-  position: sticky;
-  top: 80px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
 }
+
+.leaflet-container {
+  font-family: var(--font-body) !important;
+}
+
 .leaflet-popup-content-wrapper {
-  border-radius: var(--radius-sm) !important;
-  box-shadow: var(--shadow-card-hover) !important;
+  border-radius: var(--radius-md) !important;
+  box-shadow: var(--shadow-hover) !important;
+  border: 1px solid var(--border) !important;
+  padding: 0 !important;
+  overflow: hidden;
 }
-.map-popup__name { font-weight: 700; font-size: 0.95rem; margin-bottom: 4px; }
-.map-popup__phone { color: var(--color-primary); font-size: 0.85rem; }
+.leaflet-popup-content {
+  margin: 0 !important;
+  width: 200px !important;
+}
+.leaflet-popup-tip {
+  background: white !important;
+}
+.leaflet-popup-close-button {
+  color: var(--text-muted) !important;
+  font-size: 1.1rem !important;
+  padding: 8px 10px !important;
+}
+
+.map-popup {
+  padding: 1rem;
+}
+.map-popup__img {
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
+  display: block;
+  background: var(--parchment-dark);
+}
+.map-popup__name {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--text-dark);
+  margin-bottom: 0.2rem;
+}
+.map-popup__area {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+}
+.map-popup__phone {
+  font-size: 0.8rem;
+  color: var(--green-mid);
+  font-weight: 500;
+}
+.map-popup__link {
+  display: block;
+  margin-top: 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--terracotta);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border);
+}
+.map-popup__link:hover { color: var(--green-deep); }
+
+/* Custom marker */
+.custom-marker {
+  width: 32px;
+  height: 32px;
+  background: var(--green-deep);
+  border: 2.5px solid white;
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  box-shadow: 0 2px 8px rgba(28,43,30,0.3);
+  transition: transform 0.2s, background 0.2s;
+}
+.custom-marker:hover {
+  background: var(--terracotta);
+  transform: rotate(-45deg) scale(1.1);
+}

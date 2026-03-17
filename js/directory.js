@@ -6,38 +6,43 @@ async function loadBusinesses() {
   allBusinesses = await res.json();
   renderDirectory(allBusinesses);
   if (window.initMap) window.initMap(allBusinesses);
-  document.getElementById('resultsCount').textContent =
-    `${allBusinesses.length} businesses found`;
+  document.getElementById('resultsCount').innerHTML = `<strong>${allBusinesses.length}</strong> businesses found`;
 }
 
 function renderDirectory(businesses) {
   const grid = document.getElementById('businessGrid');
   if (!businesses.length) {
-    grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:3rem;color:var(--color-text-muted);">No businesses found. Try a different search.</div>';
+    grid.innerHTML = `
+      <div style="grid-column:1/-1; padding:5rem 0; text-align:center; color:var(--text-muted);">
+        <div style="font-family:var(--font-display);font-size:2rem;color:var(--text-dark);margin-bottom:0.5rem;">No results found</div>
+        <div style="font-size:0.875rem;">Try adjusting your search or filter</div>
+      </div>`;
     return;
   }
-  grid.innerHTML = businesses.map(b => `
+  grid.innerHTML = businesses.map(b => {
+    const stars = b.rating ? ('★'.repeat(Math.round(b.rating)) + '☆'.repeat(5 - Math.round(b.rating))) : '';
+    const imageHtml = b.photo_url
+      ? `<img class="business-card__image" src="${b.photo_url}" alt="${b.name} pet grooming" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'business-card__image-placeholder\\'>🐾</div>'">`
+      : `<div class="business-card__image-placeholder">🐾</div>`;
+    return `
     <a href="businesses/${b.slug}.html" class="business-card">
-      <img class="business-card__image"
-        src="${b.photo_url || 'css/placeholder.svg'}"
-        alt="${b.name} pet grooming"
-        loading="lazy"
-        onerror="this.src='css/placeholder.svg'">
-      <div class="business-card__body">
-        <div style="display:flex;gap:6px;margin-bottom:6px;flex-wrap:wrap;">
+      <div class="business-card__image-wrap">
+        ${imageHtml}
+        <div class="business-card__badges">
           ${b.is_mobile ? '<span class="badge badge--mobile">Mobile</span>' : ''}
           ${b.source === 'google' ? '<span class="badge badge--verified">Verified</span>' : ''}
         </div>
+      </div>
+      <div class="business-card__body">
         <div class="business-card__name">${b.name}</div>
         <div class="business-card__area">📍 ${b.area}</div>
-        ${b.rating ? `<div class="stars">${'★'.repeat(Math.round(b.rating))}${'☆'.repeat(5 - Math.round(b.rating))}</div>
-          <small style="color:var(--color-text-muted)">${b.rating} (${b.review_count} reviews)</small>` : ''}
-        ${b.phone ? `<div class="business-card__phone" style="margin-top:8px;">📞 ${b.phone}</div>` : ''}
+        ${stars ? `<div class="business-card__rating"><span class="stars">${stars}</span><small>${b.rating} (${b.review_count} reviews)</small></div>` : ''}
+        ${b.phone ? `<div class="business-card__phone">📞 ${b.phone}</div>` : ''}
       </div>
-    </a>
-  `).join('');
-  document.getElementById('resultsCount').textContent =
-    `${businesses.length} business${businesses.length !== 1 ? 'es' : ''} found`;
+    </a>`;
+  }).join('');
+  const count = businesses.length;
+  document.getElementById('resultsCount').innerHTML = `<strong>${count}</strong> business${count !== 1 ? 'es' : ''} found`;
 }
 
 function filterBusinesses() {

@@ -5,101 +5,289 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About | Cape Town Pet Parlours Directory</title>
   <meta name="description" content="Cape Town Pet Parlours is the most comprehensive directory of pet grooming services in Cape Town. Find dog groomers, cat groomers, and mobile pet grooming services near you.">
-  <link rel="canonical" href="https://COLGRAY1189.github.io/pet-parlour-directory/about.html">
+  <meta name="canonical" href="https://COLGRAY1189.github.io/pet-parlour-directory/about.html">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/components.css">
   <link rel="stylesheet" href="css/layout.css">
+  <style>
+    .about-hero {
+      background: var(--green-deep);
+      padding: 8rem 2.5rem 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .about-hero__bg {
+      position: absolute;
+      top: 50%;
+      right: -1rem;
+      transform: translateY(-50%);
+      font-family: var(--font-display);
+      font-size: clamp(6rem, 15vw, 16rem);
+      font-weight: 700;
+      color: rgba(244,236,216,0.03);
+      pointer-events: none;
+      user-select: none;
+      white-space: nowrap;
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+    @media (max-width: 768px) {
+      .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+    }
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      margin-bottom: 3rem;
+    }
+    .stat-box {
+      background: white;
+      padding: 2rem;
+      text-align: center;
+    }
+    .stat-box__num {
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      font-weight: 600;
+      color: var(--green-deep);
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+    .stat-box__label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
+    }
+    .suburb-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+    .suburb-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+      color: var(--text-mid);
+      padding: 0.5rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .suburb-item::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--terracotta);
+      flex-shrink: 0;
+    }
+    .services-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+    .service-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1rem;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      transition: box-shadow 0.2s;
+    }
+    .service-item:hover { box-shadow: var(--shadow-soft); }
+    .service-item__icon {
+      font-size: 1.25rem;
+      flex-shrink: 0;
+    }
+    .service-item__title {
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--text-dark);
+      margin-bottom: 0.2rem;
+    }
+    .service-item__desc {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+    .faq-item {
+      padding: 1.5rem 2rem;
+      border-bottom: 1px solid var(--border);
+      background: white;
+    }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-item h3 {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 0.5rem;
+    }
+    .faq-item p {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+  </style>
 </head>
 <body>
-  <nav class="nav">
-    <a href="index.html" class="nav__logo">🐾 Pet Parlours CT</a>
+  <nav class="nav scrolled" id="nav">
+    <a href="index.html" class="nav__logo">
+      <div class="nav__logo-paw">🐾</div>
+      The Parlour
+    </a>
     <div class="nav__links">
       <a href="index.html">Directory</a>
       <a href="about.html">About</a>
     </div>
-    <a href="submit.html" class="btn btn--primary nav__cta">List Your Business Free</a>
+    <a href="submit.html" class="nav__cta">List Your Business</a>
   </nav>
 
-  <section class="hero" style="padding:3rem 2rem;">
-    <h1 class="hero__title" style="font-size:2.5rem;">About Cape Town Pet Parlours</h1>
-    <p class="hero__subtitle">Connecting Cape Town pet owners with trusted groomers since 2026</p>
+  <section class="about-hero">
+    <div class="about-hero__bg">About</div>
+    <div style="max-width: 1280px; margin: 0 auto; position: relative; z-index: 1;">
+      <div class="hero__eyebrow" style="color: var(--terracotta);">Our Story</div>
+      <h1 style="font-family: var(--font-display); font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 300; color: var(--parchment); line-height: 1; letter-spacing: -0.02em; margin-bottom: 1.25rem;">
+        Cape Town's<br><em style="color: var(--gold-light);">trusted</em> pet<br>parlour guide
+      </h1>
+      <p style="color: rgba(244,236,216,0.65); font-size: 1rem; max-width: 480px; line-height: 1.7;">
+        We make it effortless for Cape Town pet owners to find trusted, local grooming services — and for grooming businesses to be discovered.
+      </p>
+    </div>
   </section>
 
-  <div class="container section" style="max-width:800px;">
+  <div class="container" style="padding-top: 3rem; padding-bottom: 4rem; max-width: 1000px;">
 
-    <h2 style="font-family:var(--font-heading);font-size:1.5rem;font-weight:700;margin-bottom:1rem;">What We Do</h2>
-    <p>Cape Town Pet Parlours is a free directory that helps pet owners in Cape Town find trusted, local grooming services. Whether you need a full groom for your golden retriever in Claremont, a mobile groomer to come to your home in Sea Point, or a specialist cat groomer in Rondebosch — we've got you covered.</p>
+    <!-- Stats -->
+    <div class="stat-row">
+      <div class="stat-box">
+        <div class="stat-box__num">38+</div>
+        <div class="stat-box__label">Listed businesses</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-box__num">Weekly</div>
+        <div class="stat-box__label">Data refresh</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-box__num">Free</div>
+        <div class="stat-box__label">To list your business</div>
+      </div>
+    </div>
 
-    <p style="margin-top:1rem;">Our listings include salons, mobile groomers, pet spas, and specialist services across all Cape Town suburbs and the greater Western Cape region.</p>
-
-    <hr style="margin:2rem 0;border:none;border-top:1px solid var(--color-border);">
-
-    <h2 style="font-family:var(--font-heading);font-size:1.5rem;font-weight:700;margin-bottom:1rem;">Pet Grooming in Cape Town</h2>
-    <p>Cape Town is home to a thriving pet grooming industry. From the leafy southern suburbs to the Atlantic Seaboard, you'll find professional groomers catering to all breeds and all budgets.</p>
-
-    <h3 style="font-family:var(--font-heading);font-size:1.1rem;font-weight:600;margin:1.5rem 0 0.5rem;">Popular grooming suburbs</h3>
-    <ul style="padding-left:1.5rem;line-height:2;">
-      <li><strong>Sea Point &amp; Green Point</strong> — Atlantic Seaboard pet salons</li>
-      <li><strong>Claremont &amp; Kenilworth</strong> — Southern suburbs grooming hubs</li>
-      <li><strong>Rondebosch &amp; Newlands</strong> — University area pet services</li>
-      <li><strong>Constantia &amp; Tokai</strong> — Premium pet spa services</li>
-      <li><strong>Bellville &amp; Tyger Valley</strong> — Northern suburbs groomers</li>
-      <li><strong>Somerset West &amp; Strand</strong> — Helderberg area services</li>
-      <li><strong>Paarl &amp; Stellenbosch</strong> — Winelands pet groomers</li>
-    </ul>
-
-    <h3 style="font-family:var(--font-heading);font-size:1.1rem;font-weight:600;margin:1.5rem 0 0.5rem;">Types of pet grooming services in Cape Town</h3>
-    <ul style="padding-left:1.5rem;line-height:2;">
-      <li><strong>Mobile pet grooming</strong> — The groomer comes to your home</li>
-      <li><strong>Full groom</strong> — Bath, dry, cut, nail clip, ear cleaning</li>
-      <li><strong>Bath &amp; brush</strong> — Wash, dry, and brush out</li>
-      <li><strong>Puppy's first groom</strong> — Gentle introduction to grooming</li>
-      <li><strong>De-shedding treatment</strong> — Reduce shedding with specialist treatment</li>
-      <li><strong>Cat grooming</strong> — Specialist feline grooming services</li>
-      <li><strong>Large breed grooming</strong> — Specialist for big dogs</li>
-    </ul>
-
-    <hr style="margin:2rem 0;border:none;border-top:1px solid var(--color-border);">
-
-    <h2 style="font-family:var(--font-heading);font-size:1.5rem;font-weight:700;margin-bottom:1rem;">For Business Owners</h2>
-    <p>Are you a pet groomer in Cape Town? List your business for free and reach thousands of pet owners searching for your services.</p>
-    <a href="submit.html" class="btn btn--primary" style="margin-top:1rem;display:inline-flex;">List your business free →</a>
-
-    <hr style="margin:2rem 0;border:none;border-top:1px solid var(--color-border);">
-
-    <h2 style="font-family:var(--font-heading);font-size:1.5rem;font-weight:700;margin-bottom:1rem;">Frequently Asked Questions</h2>
-
-    <div style="display:flex;flex-direction:column;gap:1.5rem;">
+    <div class="about-grid" style="margin-bottom: 4rem;">
       <div>
-        <h3 style="font-weight:600;margin-bottom:0.5rem;">How often is the directory updated?</h3>
-        <p>Our directory is updated weekly with new businesses sourced from Google Places, and daily with new self-submitted listings from business owners.</p>
+        <div class="section-label">What We Do</div>
+        <h2 style="font-family: var(--font-display); font-size: 2rem; font-weight: 600; margin-bottom: 1.25rem; line-height: 1.1;">The most complete pet grooming directory in Cape Town</h2>
+        <p style="color: var(--text-muted); line-height: 1.8; margin-bottom: 1rem; font-size: 0.9375rem;">Cape Town Pet Parlours helps pet owners find trusted, local grooming services. Whether you need a full groom for your golden retriever in Claremont, a mobile groomer to come to your home in Sea Point, or a cat specialist in Rondebosch — we've got you covered.</p>
+        <p style="color: var(--text-muted); line-height: 1.8; font-size: 0.9375rem;">Our directory is updated weekly with new businesses sourced from Google Places, and daily with self-submitted listings from business owners across the Western Cape.</p>
       </div>
       <div>
-        <h3 style="font-weight:600;margin-bottom:0.5rem;">Are listings verified?</h3>
-        <p>Listings marked "Verified" come directly from Google Places and include real business data. Self-submitted listings are reviewed within 48 hours before going live.</p>
+        <div class="section-label">Popular Suburbs</div>
+        <div class="suburb-grid">
+          <div class="suburb-item">Sea Point</div>
+          <div class="suburb-item">Claremont</div>
+          <div class="suburb-item">Rondebosch</div>
+          <div class="suburb-item">Constantia</div>
+          <div class="suburb-item">Bellville</div>
+          <div class="suburb-item">Tyger Valley</div>
+          <div class="suburb-item">Somerset West</div>
+          <div class="suburb-item">Stellenbosch</div>
+          <div class="suburb-item">Paarl</div>
+          <div class="suburb-item">Green Point</div>
+          <div class="suburb-item">Kenilworth</div>
+          <div class="suburb-item">Brackenfell</div>
+        </div>
       </div>
-      <div>
-        <h3 style="font-weight:600;margin-bottom:0.5rem;">How much does it cost to list my business?</h3>
-        <p>Completely free. There are no paid tiers, no commission fees, and no hidden costs. We're funded by Google AdSense advertising.</p>
+    </div>
+
+    <!-- Services -->
+    <div style="margin-bottom: 4rem;">
+      <div class="section-label">Services Listed</div>
+      <h2 style="font-family: var(--font-display); font-size: 2rem; font-weight: 600; margin-bottom: 1.5rem;">Types of pet grooming in Cape Town</h2>
+      <div class="services-list">
+        <div class="service-item"><div class="service-item__icon">🚐</div><div><div class="service-item__title">Mobile Pet Grooming</div><div class="service-item__desc">The groomer comes to your home — perfect for anxious pets or busy owners.</div></div></div>
+        <div class="service-item"><div class="service-item__icon">✂️</div><div><div class="service-item__title">Full Groom</div><div class="service-item__desc">Bath, dry, cut, nail clip, ear cleaning, and finishing touches.</div></div></div>
+        <div class="service-item"><div class="service-item__icon">🛁</div><div><div class="service-item__title">Bath & Brush</div><div class="service-item__desc">Wash, blow-dry, and full brush-out. Great for maintenance between full grooms.</div></div></div>
+        <div class="service-item"><div class="service-item__icon">🐱</div><div><div class="service-item__title">Cat Grooming</div><div class="service-item__desc">Specialist feline grooming services by experienced cat-friendly groomers.</div></div></div>
+        <div class="service-item"><div class="service-item__icon">🐕</div><div><div class="service-item__title">Large Breed Grooming</div><div class="service-item__desc">Specialist groomers equipped for large and giant breeds.</div></div></div>
       </div>
-      <div>
-        <h3 style="font-weight:600;margin-bottom:0.5rem;">Can I update my listing?</h3>
-        <p>Yes — use the "List Your Business Free" form and mention you'd like to update an existing listing. Include your business name and what needs changing.</p>
+    </div>
+
+    <!-- FAQ -->
+    <div style="margin-bottom: 3rem;">
+      <div class="section-label">FAQ</div>
+      <h2 style="font-family: var(--font-display); font-size: 2rem; font-weight: 600; margin-bottom: 1.5rem;">Common questions</h2>
+      <div class="faq-list">
+        <div class="faq-item"><h3>How often is the directory updated?</h3><p>Weekly with new businesses from Google Places, and daily with self-submitted listings from business owners.</p></div>
+        <div class="faq-item"><h3>Are listings verified?</h3><p>Listings marked "Verified" come directly from Google Places and include real business data. Self-submitted listings are reviewed within 48 hours before going live.</p></div>
+        <div class="faq-item"><h3>How much does it cost to list my business?</h3><p>Completely free. No paid tiers, no commission, no hidden costs. We're funded by Google AdSense advertising.</p></div>
+        <div class="faq-item"><h3>Can I update my listing?</h3><p>Yes — use the "List Your Business" form and mention you'd like to update an existing listing. Include your business name and the changes needed.</p></div>
+        <div class="faq-item"><h3>How do I find a mobile groomer near me?</h3><p>Use the "Mobile Grooming" filter chip on the homepage directory, or search for your suburb name in the search bar.</p></div>
       </div>
+    </div>
+
+    <!-- CTA -->
+    <div style="background: var(--green-deep); border-radius: var(--radius-lg); padding: 3rem; text-align: center;">
+      <h2 style="font-family: var(--font-display); font-size: 2rem; font-weight: 600; color: var(--parchment); margin-bottom: 0.75rem;">Own a grooming business?</h2>
+      <p style="color: rgba(244,236,216,0.65); font-size: 0.9375rem; margin-bottom: 1.5rem;">Join hundreds of Cape Town groomers reaching new clients through our directory.</p>
+      <a href="submit.html" class="btn btn--terracotta">List Your Business Free</a>
     </div>
 
   </div>
 
   <footer class="footer">
-    <div class="footer__logo">🐾 Pet Parlours Cape Town</div>
-    <p>The most complete directory of pet grooming services in Cape Town.</p>
-    <p style="margin-top:0.5rem;">
-      <a href="index.html" style="color:var(--color-primary-light);">Directory</a> ·
-      <a href="submit.html" style="color:var(--color-primary-light);">List your business</a>
-    </p>
-    <p style="margin-top:1rem;font-size:0.75rem;">Updated weekly · Data from Google Places &amp; business submissions</p>
+    <div class="footer__top" style="max-width: 1280px; margin: 0 auto;">
+      <div>
+        <div class="footer__logo">The Parlour</div>
+        <p class="footer__tagline">Cape Town's most complete directory of pet grooming services.</p>
+      </div>
+      <div>
+        <div class="footer__heading">Directory</div>
+        <ul class="footer__links">
+          <li><a href="index.html">Browse All</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer__heading">Business</div>
+        <ul class="footer__links">
+          <li><a href="submit.html">List for Free</a></li>
+          <li><a href="submit.html">Update Listing</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom" style="max-width: 1280px; margin: 0 auto;">
+      <span>© 2026 Pet Parlours Cape Town</span>
+      <span>Updated weekly</span>
+    </div>
   </footer>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      document.getElementById('nav')?.classList.toggle('scrolled', window.scrollY > 60);
+    });
+  </script>
 </body>
 </html>

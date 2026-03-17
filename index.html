@@ -6,30 +6,19 @@
   <title>Cape Town Pet Parlours | Find Dog & Cat Groomers Near You</title>
   <meta name="description" content="Find the best pet grooming services in Cape Town. Browse dog groomers, cat groomers, and mobile pet grooming services with reviews, photos, and contact details.">
   <meta name="keywords" content="pet grooming Cape Town, dog groomer Cape Town, cat grooming, mobile pet grooming, pet parlour near me">
-
-  <!-- Open Graph -->
   <meta property="og:title" content="Cape Town Pet Parlours Directory">
   <meta property="og:description" content="Find trusted pet grooming services across Cape Town.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://COLGRAY1189.github.io/pet-parlour-directory/">
-
-  <!-- Canonical -->
   <link rel="canonical" href="https://COLGRAY1189.github.io/pet-parlour-directory/">
-
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-
-  <!-- Leaflet -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
-
-  <!-- Styles -->
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/components.css">
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/map.css">
-
-  <!-- Structured Data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -44,134 +33,186 @@
     }
   }
   </script>
-
-  <!-- FAQ Schema -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "How do I find a pet groomer near me in Cape Town?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Use the search bar to search by suburb or area name. You can also browse the map to find groomers closest to your location in Cape Town."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Are there mobile pet grooming services in Cape Town?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes! Filter by 'Mobile Grooming' to find pet groomers who come to your home across Cape Town and surrounding suburbs."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How do I list my pet grooming business for free?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Click 'List Your Business Free' in the navigation menu. Fill in your business details and we will add your listing within 48 hours at no cost."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Which suburbs in Cape Town have pet groomers?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Our directory covers all Cape Town suburbs including Sea Point, Claremont, Rondebosch, Constantia, Bellville, Brackenfell, Somerset West, Paarl, Stellenbosch, and many more."
-        }
-      }
+      {"@type": "Question","name": "How do I find a pet groomer near me in Cape Town?","acceptedAnswer": {"@type": "Answer","text": "Use the search bar to search by suburb or area name. You can also browse the map to find groomers closest to your location in Cape Town."}},
+      {"@type": "Question","name": "Are there mobile pet grooming services in Cape Town?","acceptedAnswer": {"@type": "Answer","text": "Yes! Filter by 'Mobile' to find pet groomers who come to your home across Cape Town and surrounding suburbs."}},
+      {"@type": "Question","name": "How do I list my pet grooming business for free?","acceptedAnswer": {"@type": "Answer","text": "Click 'List Your Business' in the navigation. Fill in your details and we will add your listing within 48 hours at no cost."}}
     ]
   }
   </script>
-
-  <!-- AdSense (add publisher ID when approved) -->
   <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXX" crossorigin="anonymous"></script> -->
 </head>
 <body>
 
   <!-- Navigation -->
-  <nav class="nav">
-    <div class="nav__logo">🐾 Pet Parlours CT</div>
+  <nav class="nav" id="nav">
+    <div class="nav__logo">
+      <div class="nav__logo-paw">🐾</div>
+      The Parlour
+    </div>
     <div class="nav__links">
       <a href="index.html">Directory</a>
       <a href="about.html">About</a>
     </div>
-    <a href="submit.html" class="btn btn--primary nav__cta">List Your Business Free</a>
+    <a href="submit.html" class="nav__cta">List Your Business</a>
   </nav>
 
   <!-- Hero -->
   <section class="hero">
-    <h1 class="hero__title">Find Pet Groomers<br>in Cape Town</h1>
-    <p class="hero__subtitle">Browse salons, mobile groomers &amp; specialist services near you</p>
-    <div class="hero__search">
-      <div class="search-bar">
-        <input type="text" id="searchInput" placeholder="Search by area, suburb or business name…" autocomplete="off">
-        <button class="btn btn--primary" onclick="handleSearch()">Search</button>
+    <div class="hero__bg-text">Groom</div>
+
+    <div class="hero__eyebrow animate-fade-up">Cape Town's Pet Parlour Directory</div>
+
+    <h1 class="hero__title animate-fade-up animate-delay-1">
+      Find <em>exceptional</em><br>pet groomers<br>near you
+    </h1>
+
+    <p class="hero__subtitle animate-fade-up animate-delay-2">
+      Discover trusted salons, mobile groomers &amp; specialist services across Cape Town and the Western Cape.
+    </p>
+
+    <div class="animate-fade-up animate-delay-3">
+      <div class="hero__search-label">Search by area, suburb or name</div>
+      <div class="search-wrap">
+        <div class="search-bar">
+          <input type="text" id="searchInput" placeholder="e.g. Sea Point, Claremont, mobile..." autocomplete="off">
+          <button class="btn btn--terracotta" onclick="handleSearch()">Search</button>
+        </div>
       </div>
     </div>
 
-    <!-- Filter chips -->
-    <div class="filter-chips" style="justify-content:center; margin-top: 1rem;">
-      <button class="chip active" data-filter="all">All</button>
-      <button class="chip" data-filter="mobile">Mobile Grooming</button>
-      <button class="chip" data-filter="salon">Salon</button>
-      <button class="chip" data-filter="cats">Cats Welcome</button>
-      <button class="chip" data-filter="large-breeds">Large Breeds</button>
+    <div class="animate-fade-up animate-delay-4" style="margin-top: 1.5rem;">
+      <div class="filter-chips">
+        <button class="chip active" data-filter="all">All Services</button>
+        <button class="chip" data-filter="mobile">Mobile Grooming</button>
+        <button class="chip" data-filter="salon">Salon</button>
+        <button class="chip" data-filter="cats">Cats Welcome</button>
+        <button class="chip" data-filter="large-breeds">Large Breeds</button>
+      </div>
+    </div>
+
+    <div class="hero__stats animate-fade-up animate-delay-5">
+      <div>
+        <div class="hero__stat-num" id="totalCount">—</div>
+        <div class="hero__stat-label">Listed businesses</div>
+      </div>
+      <div>
+        <div class="hero__stat-num">38+</div>
+        <div class="hero__stat-label">Cape Town suburbs</div>
+      </div>
+      <div>
+        <div class="hero__stat-num">Free</div>
+        <div class="hero__stat-label">To list your business</div>
+      </div>
+    </div>
+
+    <div class="hero__scroll-hint">
+      <div class="hero__scroll-line"></div>
+      Scroll to browse
     </div>
   </section>
 
-  <!-- AdSense banner slot -->
-  <div class="container" style="padding-top: 1.5rem;">
-    <div class="ad-slot" style="height:90px;">Advertisement</div>
+  <!-- Ad Banner -->
+  <div class="container" style="padding-top: 2rem; padding-bottom: 0;">
+    <div class="ad-slot" style="min-height: 90px;">Advertisement</div>
   </div>
 
-  <!-- Directory + Map -->
+  <!-- Directory -->
   <main class="container section">
-    <div style="margin-bottom: 1rem; display:flex; justify-content:space-between; align-items:center;">
-      <p id="resultsCount" style="color: var(--color-text-muted); font-size:0.9rem;"></p>
-      <select id="sortSelect" onchange="handleSort()" style="padding:0.4rem 0.8rem; border:1px solid var(--color-border); border-radius:var(--radius-sm); font-family:var(--font-body);">
-        <option value="name">Sort: Name A–Z</option>
+
+    <div class="toolbar">
+      <div class="toolbar__left">
+        <p class="toolbar__count" id="resultsCount">Loading<strong></strong></p>
+      </div>
+      <select class="sort-select" id="sortSelect" onchange="handleSort()">
+        <option value="name">Sort: A – Z</option>
         <option value="rating">Sort: Top Rated</option>
-        <option value="area">Sort: Area</option>
+        <option value="area">Sort: By Area</option>
       </select>
     </div>
 
-    <div class="directory-layout">
-      <!-- Listing -->
+    <div class="directory-wrap">
+      <!-- Business Grid -->
       <div>
         <div class="business-grid" id="businessGrid">
-          <!-- Populated by directory.js -->
-          <div style="grid-column:1/-1; text-align:center; padding:3rem; color:var(--color-text-muted);">
-            Loading businesses…
+          <div style="grid-column:1/-1; padding: 4rem 0; text-align: center; color: var(--text-muted);">
+            <div style="font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 0.5rem;">Loading…</div>
+            <div style="font-size: 0.875rem;">Fetching Cape Town groomers</div>
           </div>
         </div>
       </div>
 
       <!-- Map -->
-      <div>
+      <div class="map-sidebar">
+        <div style="margin-bottom: 0.75rem;">
+          <div class="section-label">Map View</div>
+        </div>
         <div id="map"></div>
       </div>
     </div>
+
   </main>
 
   <!-- Footer -->
   <footer class="footer">
-    <div class="footer__logo">🐾 Pet Parlours Cape Town</div>
-    <p>The most complete directory of pet grooming services in Cape Town.</p>
-    <p style="margin-top:0.5rem;">
-      <a href="submit.html" style="color: var(--color-primary-light);">List your business free</a> ·
-      <a href="about.html" style="color: var(--color-primary-light);">About</a>
-    </p>
-    <p style="margin-top:1rem; font-size:0.75rem;">Updated weekly · Data from Google Places &amp; business submissions</p>
+    <div class="footer__top" style="max-width: 1280px; margin: 0 auto;">
+      <div>
+        <div class="footer__logo">The Parlour</div>
+        <p class="footer__tagline">Cape Town's most complete directory of pet grooming services. Updated weekly with new businesses.</p>
+        <a href="submit.html" class="btn btn--ghost" style="margin-top: 1rem; font-size: 0.8rem;">List Your Business Free</a>
+      </div>
+      <div>
+        <div class="footer__heading">Directory</div>
+        <ul class="footer__links">
+          <li><a href="index.html">All Groomers</a></li>
+          <li><a href="index.html?filter=mobile">Mobile Grooming</a></li>
+          <li><a href="index.html?filter=cats">Cat Grooming</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer__heading">For Businesses</div>
+        <ul class="footer__links">
+          <li><a href="submit.html">List for Free</a></li>
+          <li><a href="submit.html">Update Listing</a></li>
+        </ul>
+        <div class="footer__heading" style="margin-top: 1.5rem;">Updated</div>
+        <p style="font-size: 0.8rem;" id="lastUpdated">Weekly</p>
+      </div>
+    </div>
+    <div class="footer__bottom" style="max-width: 1280px; margin: 0 auto;">
+      <span>© 2026 Pet Parlours Cape Town</span>
+      <span>Data from Google Places &amp; business submissions</span>
+    </div>
   </footer>
 
-  <!-- Scripts -->
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="js/map.js"></script>
   <script src="js/directory.js"></script>
   <script src="js/search.js"></script>
+  <script>
+    // Sticky nav
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    });
+    // Last updated
+    fetch('data/last-updated.json').then(r => r.json()).then(d => {
+      document.getElementById('lastUpdated').textContent = `Last updated: ${d.date}`;
+      document.getElementById('totalCount').textContent = d.count;
+    }).catch(() => {});
+    // URL filter param
+    const urlParams = new URLSearchParams(window.location.search);
+    const urlFilter = urlParams.get('filter');
+    if (urlFilter) {
+      document.querySelectorAll('.chip').forEach(c => {
+        c.classList.toggle('active', c.dataset.filter === urlFilter);
+      });
+    }
+  </script>
 </body>
 </html>

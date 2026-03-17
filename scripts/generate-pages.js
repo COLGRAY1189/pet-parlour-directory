@@ -38,70 +38,138 @@ for (const b of businesses) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>${b.name} | Pet Grooming in ${b.area}, Cape Town</title>
-  <meta name="description" content="${b.name} is a pet grooming service in ${b.area}, Cape Town.${b.description ? ' ' + b.description : ''}">
+  <meta name="description" content="${b.name} is a pet grooming service in ${b.area}, Cape Town.${b.description ? ' ' + b.description.replace(/"/g, '&quot;') : ''}">
   <link rel="canonical" href="${BASE_URL}/businesses/${b.slug}.html">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/main.css">
   <link rel="stylesheet" href="../css/components.css">
   <link rel="stylesheet" href="../css/layout.css">
-  <script type="application/ld+json">${JSON.stringify(jsonLd)}</script>
+  <script type="application/ld+json">${JSON.stringify(jsonLd)}<\/script>
+  <style>
+    .biz-hero { background: var(--green-deep); padding: 7rem 2.5rem 3rem; position: relative; overflow: hidden; }
+    .biz-hero__bg { position: absolute; top: 50%; right: -1rem; transform: translateY(-50%); font-family: var(--font-display); font-size: clamp(5rem,14vw,14rem); font-weight: 700; color: rgba(244,236,216,0.03); pointer-events: none; user-select: none; white-space: nowrap; }
+    .biz-content { display: grid; grid-template-columns: 1fr 340px; gap: 3rem; align-items: start; }
+    @media(max-width:768px){ .biz-content { grid-template-columns: 1fr; } }
+    .biz-sidebar { position: sticky; top: 88px; }
+    .biz-card { background: white; border: 1px solid var(--border); border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-card); }
+    .biz-card__img { width: 100%; height: 220px; object-fit: cover; display: block; background: var(--parchment-dark); }
+    .biz-card__body { padding: 1.5rem; }
+    .biz-card__cta { display: flex; flex-direction: column; gap: 0.75rem; padding: 1.25rem; border-top: 1px solid var(--border); }
+    .info-row { display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.875rem 0; border-bottom: 1px solid var(--border); font-size: 0.875rem; }
+    .info-row:last-child { border-bottom: none; }
+    .info-row__icon { color: var(--terracotta); flex-shrink: 0; margin-top: 0.1rem; }
+    .info-row__label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 0.2rem; }
+    .services-wrap { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+    .service-tag { padding: 0.3rem 0.8rem; background: var(--parchment); border: 1px solid var(--border); border-radius: var(--radius-pill); font-size: 0.78rem; color: var(--text-mid); }
+  </style>
 </head>
 <body>
-  <nav class="nav">
-    <a href="../index.html" class="nav__logo">🐾 Pet Parlours CT</a>
+  <nav class="nav scrolled" id="nav">
+    <a href="../index.html" class="nav__logo">
+      <div class="nav__logo-paw">🐾</div>
+      The Parlour
+    </a>
     <div class="nav__links">
-      <a href="../index.html">← Back to Directory</a>
+      <a href="../index.html">← Directory</a>
     </div>
-    <a href="../submit.html" class="btn btn--primary nav__cta">List Free</a>
+    <a href="../submit.html" class="nav__cta">List Free</a>
   </nav>
 
-  <div class="container section" style="max-width:900px;">
-    ${b.photo_url ? `<img src="${b.photo_url}" alt="${b.name} pet grooming in ${b.area}" style="width:100%;height:300px;object-fit:cover;border-radius:var(--radius-md);margin-bottom:2rem;">` : ''}
+  <section class="biz-hero">
+    <div class="biz-hero__bg">${b.name.split(' ')[0]}</div>
+    <div style="max-width:1280px;margin:0 auto;position:relative;z-index:1;">
+      <div class="hero__eyebrow" style="color:var(--terracotta);">${b.area} · Cape Town</div>
+      <h1 style="font-family:var(--font-display);font-size:clamp(2rem,5vw,4rem);font-weight:300;color:var(--parchment);line-height:1;letter-spacing:-0.02em;margin-bottom:0.75rem;">${b.name}</h1>
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.75rem;">
+        ${b.is_mobile ? '<span class="badge badge--mobile">Mobile</span>' : ''}
+        ${b.source === 'google' ? '<span class="badge badge--verified">Verified</span>' : ''}
+      </div>
+      ${b.rating ? `<div style="display:flex;align-items:center;gap:0.5rem;"><span class="stars" style="font-size:1rem;">${'★'.repeat(Math.round(b.rating))}${'☆'.repeat(5-Math.round(b.rating))}</span><span style="color:rgba(244,236,216,0.65);font-size:0.875rem;">${b.rating} out of 5 · ${b.review_count} reviews</span></div>` : ''}
+    </div>
+  </section>
 
-    <div style="display:grid;grid-template-columns:1fr auto;gap:1rem;align-items:start;flex-wrap:wrap;">
+  <div class="container section" style="max-width:1100px;">
+    <div class="biz-content">
+
+      <!-- Main content -->
       <div>
-        <div style="display:flex;gap:8px;margin-bottom:0.5rem;flex-wrap:wrap;">
-          ${b.is_mobile ? '<span class="badge badge--mobile">Mobile</span>' : ''}
-          ${b.source === 'google' ? '<span class="badge badge--verified">Verified</span>' : ''}
+        ${b.description ? `<div style="margin-bottom:2rem;"><div class="section-label">About</div><p style="font-size:1rem;line-height:1.8;color:var(--text-mid);">${b.description}</p></div>` : ''}
+
+        ${b.services?.length ? `
+        <div style="margin-bottom:2rem;">
+          <div class="section-label">Services Offered</div>
+          <div class="services-wrap">
+            ${b.services.map(s => `<span class="service-tag">${s}</span>`).join('')}
+          </div>
+        </div>` : ''}
+
+        <div style="margin-bottom:2rem;">
+          <div class="section-label">Business Details</div>
+          <div style="background:white;border:1px solid var(--border);border-radius:var(--radius-md);overflow:hidden;">
+            ${b.address ? `<div class="info-row"><div class="info-row__icon">📍</div><div><div class="info-row__label">Address</div>${b.address}</div></div>` : ''}
+            ${b.hours ? `<div class="info-row"><div class="info-row__icon">🕐</div><div><div class="info-row__label">Hours</div>${b.hours}</div></div>` : ''}
+            ${b.phone ? `<div class="info-row"><div class="info-row__icon">📞</div><div><div class="info-row__label">Phone</div><a href="tel:${b.phone}" style="color:var(--green-mid);font-weight:500;">${b.phone}</a></div></div>` : ''}
+            ${b.website ? `<div class="info-row"><div class="info-row__icon">🌐</div><div><div class="info-row__label">Website</div><a href="${b.website}" target="_blank" rel="noopener" style="color:var(--terracotta);">${b.website.replace(/^https?:\/\//, '')}</a></div></div>` : ''}
+            ${b.facebook ? `<div class="info-row"><div class="info-row__icon">📘</div><div><div class="info-row__label">Facebook</div><a href="${b.facebook}" target="_blank" rel="noopener" style="color:var(--terracotta);">View Facebook Page</a></div></div>` : ''}
+          </div>
         </div>
-        <h1 style="font-family:var(--font-heading);font-size:2rem;font-weight:800;">${b.name}</h1>
-        <p style="color:var(--color-text-muted);margin-top:0.5rem;">📍 ${b.area}, Cape Town</p>
-        ${starsHtml}
-      </div>
-      <div style="text-align:right;display:flex;flex-direction:column;gap:0.5rem;">
-        ${b.phone ? `<a href="tel:${b.phone}" class="btn btn--primary">📞 Call Now</a>` : ''}
-        ${b.website ? `<a href="${b.website}" target="_blank" rel="noopener" class="btn btn--outline">Visit Website</a>` : ''}
-      </div>
-    </div>
 
-    <hr style="margin:2rem 0;border:none;border-top:1px solid var(--color-border);">
-
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;">
-      <div>
-        ${b.address ? `<p><strong>Address:</strong><br>${b.address}</p>` : ''}
-        ${b.hours ? `<p style="margin-top:1rem;"><strong>Hours:</strong><br>${b.hours}</p>` : ''}
-        ${b.facebook ? `<p style="margin-top:1rem;"><a href="${b.facebook}" target="_blank" rel="noopener" style="color:var(--color-primary);">View Facebook Page →</a></p>` : ''}
+        <div style="background:var(--parchment);border:1px solid var(--border);border-radius:var(--radius-md);padding:1.5rem;text-align:center;">
+          <p style="font-size:0.875rem;color:var(--text-muted);margin-bottom:0.75rem;">Is this your business?</p>
+          <a href="../submit.html" class="btn btn--outline" style="font-size:0.8rem;">Claim &amp; Update Listing</a>
+        </div>
       </div>
-      <div>
-        ${b.services?.length ? `<p><strong>Services:</strong></p>
-        <ul style="margin-top:0.5rem;padding-left:1.2rem;">
-          ${b.services.map(s => `<li>${s}</li>`).join('')}
-        </ul>` : ''}
+
+      <!-- Sidebar -->
+      <div class="biz-sidebar">
+        <div class="biz-card">
+          ${b.photo_url ? `<img class="biz-card__img" src="${b.photo_url}" alt="${b.name}" onerror="this.style.display='none'">` : `<div style="height:180px;background:var(--parchment-dark);display:flex;align-items:center;justify-content:center;font-size:4rem;color:var(--border);">🐾</div>`}
+          <div class="biz-card__body">
+            <div style="font-family:var(--font-display);font-size:1.3rem;font-weight:600;margin-bottom:0.25rem;">${b.name}</div>
+            <div style="font-size:0.8rem;color:var(--text-muted);">📍 ${b.area}, Cape Town</div>
+          </div>
+          <div class="biz-card__cta">
+            ${b.phone ? `<a href="tel:${b.phone}" class="btn btn--primary" style="justify-content:center;">📞 Call Now</a>` : ''}
+            ${b.website ? `<a href="${b.website}" target="_blank" rel="noopener" class="btn btn--outline" style="justify-content:center;font-size:0.8rem;">Visit Website</a>` : ''}
+            <a href="../index.html" style="text-align:center;font-size:0.8rem;color:var(--text-muted);padding-top:0.25rem;">← Back to directory</a>
+          </div>
+        </div>
       </div>
-    </div>
 
-    ${b.description ? `<p style="margin-top:2rem;line-height:1.7;">${b.description}</p>` : ''}
-
-    <div style="margin-top:2rem;padding:1.5rem;background:var(--color-border);border-radius:var(--radius-md);text-align:center;">
-      <p>Is this your business? <a href="../submit.html" style="color:var(--color-primary);font-weight:600;">Claim &amp; update your listing →</a></p>
     </div>
   </div>
 
   <footer class="footer">
-    <div class="footer__logo">🐾 Pet Parlours Cape Town</div>
-    <p><a href="../index.html" style="color:var(--color-primary-light);">← Back to directory</a></p>
+    <div class="footer__top" style="max-width:1280px;margin:0 auto;">
+      <div>
+        <div class="footer__logo">The Parlour</div>
+        <p class="footer__tagline">Cape Town's most complete directory of pet grooming services.</p>
+      </div>
+      <div>
+        <div class="footer__heading">Directory</div>
+        <ul class="footer__links">
+          <li><a href="../index.html">Browse All</a></li>
+          <li><a href="../about.html">About</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer__heading">Business</div>
+        <ul class="footer__links">
+          <li><a href="../submit.html">List for Free</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom" style="max-width:1280px;margin:0 auto;">
+      <span>© 2026 Pet Parlours Cape Town</span>
+    </div>
   </footer>
+  <script>
+    window.addEventListener('scroll', () => {
+      document.getElementById('nav')?.classList.toggle('scrolled', window.scrollY > 60);
+    });
+  </script>
 </body>
 </html>`;
 

@@ -6,67 +6,284 @@
   <title>List Your Pet Grooming Business Free | Cape Town Pet Parlours</title>
   <meta name="description" content="List your Cape Town pet grooming business for free. Reach thousands of pet owners searching for groomers near them.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/components.css">
   <link rel="stylesheet" href="css/layout.css">
+  <style>
+    .submit-hero {
+      background: var(--green-deep);
+      padding: 8rem 2.5rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .submit-hero::before {
+      content: '';
+      position: absolute;
+      top: -20%;
+      right: -10%;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      border: 1px solid rgba(244,236,216,0.06);
+      pointer-events: none;
+    }
+    .submit-hero__bg {
+      position: absolute;
+      top: 50%;
+      right: -1rem;
+      transform: translateY(-50%);
+      font-family: var(--font-display);
+      font-size: clamp(6rem, 15vw, 16rem);
+      font-weight: 700;
+      color: rgba(244,236,216,0.03);
+      pointer-events: none;
+      user-select: none;
+      white-space: nowrap;
+    }
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+    @media (max-width: 640px) {
+      .benefits-grid { grid-template-columns: 1fr; }
+    }
+    .benefit-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 1.75rem;
+      position: relative;
+      overflow: hidden;
+      transition: box-shadow 0.3s, transform 0.3s;
+    }
+    .benefit-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+    }
+    .benefit-card__icon {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .benefit-card__title {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 0.4rem;
+    }
+    .benefit-card__desc {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .form-container {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+    }
+    .form-header {
+      background: var(--parchment);
+      padding: 2rem 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .form-header h2 {
+      font-family: var(--font-display);
+      font-size: 1.75rem;
+      font-weight: 600;
+      color: var(--text-dark);
+    }
+    .form-header p {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      margin-top: 0.4rem;
+    }
+    .form-body {
+      padding: 2rem 2.5rem;
+    }
+    iframe {
+      border: none;
+      width: 100%;
+      display: block;
+    }
+    .process-steps {
+      display: flex;
+      gap: 0;
+      margin-top: 3rem;
+    }
+    .process-step {
+      flex: 1;
+      text-align: center;
+      padding: 1.5rem 1rem;
+      position: relative;
+    }
+    .process-step::after {
+      content: '→';
+      position: absolute;
+      right: -0.5rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--border);
+      font-size: 1.2rem;
+    }
+    .process-step:last-child::after { display: none; }
+    .process-step__num {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--green-deep);
+      color: var(--parchment);
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 0.75rem;
+    }
+    .process-step__title {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      letter-spacing: 0.02em;
+    }
+    .process-step__desc {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 0.25rem;
+    }
+    @media (max-width: 600px) {
+      .process-steps { flex-direction: column; }
+      .process-step::after { content: '↓'; right: 50%; top: auto; bottom: -0.75rem; transform: translateX(50%); }
+    }
+  </style>
 </head>
 <body>
-  <nav class="nav">
-    <a href="index.html" class="nav__logo">🐾 Pet Parlours CT</a>
+  <nav class="nav scrolled" id="nav">
+    <a href="index.html" class="nav__logo">
+      <div class="nav__logo-paw">🐾</div>
+      The Parlour
+    </a>
     <div class="nav__links">
       <a href="index.html">Directory</a>
       <a href="about.html">About</a>
     </div>
-    <a href="submit.html" class="btn btn--primary nav__cta">List Free</a>
+    <a href="submit.html" class="nav__cta">List Free</a>
   </nav>
 
-  <section class="hero" style="padding: 3rem 2rem;">
-    <h1 class="hero__title" style="font-size:2.5rem;">List Your Business Free</h1>
-    <p class="hero__subtitle">Join Cape Town pet groomers reaching new clients every day.</p>
-  </section>
-
-  <div class="container section" style="max-width:700px;">
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:2rem;">
-      <div style="text-align:center;padding:1.5rem;background:white;border-radius:var(--radius-md);border:1px solid var(--color-border);">
-        <div style="font-size:2rem;">📍</div>
-        <strong>Be Found</strong>
-        <p style="font-size:0.85rem;color:var(--color-text-muted);margin-top:0.25rem;">Appear on our map and directory</p>
-      </div>
-      <div style="text-align:center;padding:1.5rem;background:white;border-radius:var(--radius-md);border:1px solid var(--color-border);">
-        <div style="font-size:2rem;">⭐</div>
-        <strong>Get Reviews</strong>
-        <p style="font-size:0.85rem;color:var(--color-text-muted);margin-top:0.25rem;">Build trust with real reviews</p>
-      </div>
-      <div style="text-align:center;padding:1.5rem;background:white;border-radius:var(--radius-md);border:1px solid var(--color-border);">
-        <div style="font-size:2rem;">💰</div>
-        <strong>100% Free</strong>
-        <p style="font-size:0.85rem;color:var(--color-text-muted);margin-top:0.25rem;">No cost, no hidden fees</p>
-      </div>
-    </div>
-
-    <p style="text-align:center;color:var(--color-text-muted);margin-bottom:1.5rem;">
-      Fill in the form below. Listings are reviewed and added within 48 hours.
-    </p>
-
-    <!-- Replace src with your actual Google Form embed URL after creating the form -->
-    <div style="background:white;border:1px solid var(--color-border);border-radius:var(--radius-md);padding:2rem;text-align:center;">
-      <p style="color:var(--color-text-muted);font-size:0.9rem;">
-        📋 Google Form coming soon — replace this placeholder with your Google Form embed iframe.<br><br>
-        <strong>How to set up:</strong><br>
-        1. Go to forms.google.com → Create a new form<br>
-        2. Add fields: Business Name, Suburb, Phone, Website, Facebook URL, Services, Hours<br>
-        3. Link to a Google Sheet for responses<br>
-        4. Click Send → Embed → Copy the iframe code<br>
-        5. Replace this block in submit.html with the iframe
+  <section class="submit-hero">
+    <div class="submit-hero__bg">List</div>
+    <div style="max-width: 1280px; margin: 0 auto; position: relative; z-index: 1;">
+      <div class="hero__eyebrow" style="color: var(--terracotta);">For Business Owners</div>
+      <h1 style="font-family: var(--font-display); font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 300; color: var(--parchment); line-height: 1; letter-spacing: -0.02em; margin-bottom: 1rem;">
+        Grow your<br><em style="font-style: italic; color: var(--gold-light);">grooming</em> business
+      </h1>
+      <p style="color: rgba(244,236,216,0.65); font-size: 1rem; max-width: 420px; line-height: 1.7;">
+        Join Cape Town's most trusted pet parlour directory. Reach thousands of pet owners actively searching for groomers.
       </p>
     </div>
+  </section>
+
+  <div class="container" style="padding-top: 3rem; padding-bottom: 4rem; max-width: 900px;">
+
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <div class="benefit-card__icon" style="background: rgba(28,43,30,0.08);">📍</div>
+        <div class="benefit-card__title">Be Discovered</div>
+        <p class="benefit-card__desc">Appear on our interactive map and directory, reaching pet owners in your area.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-card__icon" style="background: rgba(196,98,45,0.1);">⭐</div>
+        <div class="benefit-card__title">Build Trust</div>
+        <p class="benefit-card__desc">Display your Google reviews, rating, and photos directly on your listing.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-card__icon" style="background: rgba(184,149,74,0.12);">💰</div>
+        <div class="benefit-card__title">100% Free</div>
+        <p class="benefit-card__desc">No fees, no commission, no hidden costs. We're funded by advertising.</p>
+      </div>
+    </div>
+
+    <div class="process-steps" style="margin-bottom: 2.5rem;">
+      <div class="process-step">
+        <div class="process-step__num">1</div>
+        <div class="process-step__title">Submit</div>
+        <div class="process-step__desc">Fill in the form below</div>
+      </div>
+      <div class="process-step">
+        <div class="process-step__num">2</div>
+        <div class="process-step__title">Review</div>
+        <div class="process-step__desc">We verify within 48 hrs</div>
+      </div>
+      <div class="process-step">
+        <div class="process-step__num">3</div>
+        <div class="process-step__title">Live</div>
+        <div class="process-step__desc">Your listing goes live</div>
+      </div>
+    </div>
+
+    <div class="form-container">
+      <div class="form-header">
+        <h2>Submit Your Business</h2>
+        <p>All fields marked with * are required. Listings are reviewed and added within 48 hours.</p>
+      </div>
+      <div class="form-body">
+        <!-- Replace with your Google Form embed iframe -->
+        <div style="padding: 3rem 0; text-align: center; color: var(--text-muted);">
+          <div style="font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 0.75rem; color: var(--text-dark);">Google Form Placeholder</div>
+          <p style="font-size: 0.875rem; line-height: 1.7; max-width: 400px; margin: 0 auto;">
+            Replace this block with your Google Form iframe embed code.<br>
+            Go to your form → Send → Embed → Copy iframe → Paste here.
+          </p>
+        </div>
+        <!-- Example: <iframe src="https://docs.google.com/forms/d/e/YOUR_FORM_ID/viewform?embedded=true" height="1400"></iframe> -->
+      </div>
+    </div>
+
   </div>
 
   <footer class="footer">
-    <div class="footer__logo">🐾 Pet Parlours Cape Town</div>
-    <p>Listings are reviewed and added within 48 hours.</p>
-    <p style="margin-top:0.5rem;"><a href="index.html" style="color:var(--color-primary-light);">← Back to directory</a></p>
+    <div class="footer__top" style="max-width: 1280px; margin: 0 auto;">
+      <div>
+        <div class="footer__logo">The Parlour</div>
+        <p class="footer__tagline">Cape Town's most complete directory of pet grooming services.</p>
+      </div>
+      <div>
+        <div class="footer__heading">Directory</div>
+        <ul class="footer__links">
+          <li><a href="index.html">Browse All</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer__heading">Business</div>
+        <ul class="footer__links">
+          <li><a href="submit.html">List for Free</a></li>
+          <li><a href="submit.html">Update Listing</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom" style="max-width: 1280px; margin: 0 auto;">
+      <span>© 2026 Pet Parlours Cape Town</span>
+      <span>Updated weekly</span>
+    </div>
   </footer>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      document.getElementById('nav')?.classList.toggle('scrolled', window.scrollY > 60);
+    });
+  </script>
 </body>
 </html>
