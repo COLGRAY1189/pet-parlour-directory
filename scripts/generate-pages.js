@@ -61,6 +61,8 @@ for (const b of businesses) {
     .info-row:last-child { border-bottom: none; }
     .info-row__icon { color: var(--terracotta); flex-shrink: 0; margin-top: 0.1rem; }
     .info-row__label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 0.2rem; }
+    .hours-list { display: flex; flex-direction: column; gap: 0.2rem; }
+    .hours-list__day { font-size: 0.875rem; color: var(--text-dark); }
     .services-wrap { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
     .service-tag { padding: 0.3rem 0.8rem; background: var(--parchment); border: 1px solid var(--border); border-radius: var(--radius-pill); font-size: 0.78rem; color: var(--text-mid); }
   </style>
@@ -109,7 +111,7 @@ for (const b of businesses) {
           <div class="section-label">Business Details</div>
           <div style="background:white;border:1px solid var(--border);border-radius:var(--radius-md);overflow:hidden;">
             ${b.address ? `<div class="info-row"><div class="info-row__icon">📍</div><div><div class="info-row__label">Address</div>${b.address}</div></div>` : ''}
-            ${b.hours ? `<div class="info-row"><div class="info-row__icon">🕐</div><div><div class="info-row__label">Hours</div>${b.hours}</div></div>` : ''}
+            ${b.hours ? `<div class="info-row"><div class="info-row__icon">🕐</div><div><div class="info-row__label">Hours</div><div class="hours-list">${b.hours.split(',').map(h => `<div class="hours-list__day">${h.trim()}</div>`).join('')}</div></div></div>` : ''}
             ${b.phone ? `<div class="info-row"><div class="info-row__icon">📞</div><div><div class="info-row__label">Phone</div><a href="tel:${b.phone}" style="color:var(--green-mid);font-weight:500;">${b.phone}</a></div></div>` : ''}
             ${b.website ? `<div class="info-row"><div class="info-row__icon">🌐</div><div><div class="info-row__label">Website</div><a href="${b.website}" target="_blank" rel="noopener" style="color:var(--terracotta);">${b.website.replace(/^https?:\/\//, '')}</a></div></div>` : ''}
             ${b.facebook ? `<div class="info-row"><div class="info-row__icon">📘</div><div><div class="info-row__label">Facebook</div><a href="${b.facebook}" target="_blank" rel="noopener" style="color:var(--terracotta);">View Facebook Page</a></div></div>` : ''}

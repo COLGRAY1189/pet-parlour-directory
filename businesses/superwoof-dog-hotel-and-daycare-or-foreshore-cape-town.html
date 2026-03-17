@@ -27,6 +27,8 @@
     .info-row:last-child { border-bottom: none; }
     .info-row__icon { color: var(--terracotta); flex-shrink: 0; margin-top: 0.1rem; }
     .info-row__label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 0.2rem; }
+    .hours-list { display: flex; flex-direction: column; gap: 0.2rem; }
+    .hours-list__day { font-size: 0.875rem; color: var(--text-dark); }
     .services-wrap { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
     .service-tag { padding: 0.3rem 0.8rem; background: var(--parchment); border: 1px solid var(--border); border-radius: var(--radius-pill); font-size: 0.78rem; color: var(--text-mid); }
   </style>
@@ -69,7 +71,7 @@
           <div class="section-label">Business Details</div>
           <div style="background:white;border:1px solid var(--border);border-radius:var(--radius-md);overflow:hidden;">
             <div class="info-row"><div class="info-row__icon">📍</div><div><div class="info-row__label">Address</div>128 Russell St, Foreshore, Cape Town, 8001, South Africa</div></div>
-            <div class="info-row"><div class="info-row__icon">🕐</div><div><div class="info-row__label">Hours</div>Monday: 6:30 AM – 12:00 AM, Tuesday: 6:30 AM – 12:00 AM, Wednesday: 6:30 AM – 12:00 AM, Thursday: 6:30 AM – 12:00 AM, Friday: 6:30 AM – 12:00 AM, Saturday: 6:30 AM – 12:00 AM, Sunday: 6:30 AM – 12:00 AM</div></div>
+            <div class="info-row"><div class="info-row__icon">🕐</div><div><div class="info-row__label">Hours</div><div class="hours-list"><div class="hours-list__day">Monday: 6:30 AM – 12:00 AM</div><div class="hours-list__day">Tuesday: 6:30 AM – 12:00 AM</div><div class="hours-list__day">Wednesday: 6:30 AM – 12:00 AM</div><div class="hours-list__day">Thursday: 6:30 AM – 12:00 AM</div><div class="hours-list__day">Friday: 6:30 AM – 12:00 AM</div><div class="hours-list__day">Saturday: 6:30 AM – 12:00 AM</div><div class="hours-list__day">Sunday: 6:30 AM – 12:00 AM</div></div></div></div>
             <div class="info-row"><div class="info-row__icon">📞</div><div><div class="info-row__label">Phone</div><a href="tel:+27 82 557 7550" style="color:var(--green-mid);font-weight:500;">+27 82 557 7550</a></div></div>
             <div class="info-row"><div class="info-row__icon">🌐</div><div><div class="info-row__label">Website</div><a href="http://www.superwoof.co/" target="_blank" rel="noopener" style="color:var(--terracotta);">www.superwoof.co/</a></div></div>
             
