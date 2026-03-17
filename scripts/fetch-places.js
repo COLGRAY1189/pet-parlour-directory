@@ -10,23 +10,28 @@ const QUERIES = [
   'pet parlour Cape Town'
 ];
 
+// Uses Places API (New) - POST endpoint
 async function searchPlaces(query) {
-  const url = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${encodeURIComponent(query)}&key=${API_KEY}`;
-  const res = await fetch(url);
+  const url = 'https://places.googleapis.com/v1/places:searchText';
+  const res = await fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'X-Goog-Api-Key': API_KEY,
+      'X-Goog-FieldMask': 'places.id,places.displayName,places.formattedAddress,places.internationalPhoneNumber,places.websiteUri,places.rating,places.userRatingCount,places.photos,places.location,places.regularOpeningHours'
+    },
+    body: JSON.stringify({ textQuery: query, maxResultCount: 20 })
+  });
   const data = await res.json();
-  return data.results || [];
+  if (data.error) {
+    console.error('API error:', JSON.stringify(data.error));
+    return [];
+  }
+  return data.places || [];
 }
 
-async function getPlaceDetails(placeId) {
-  const fields = 'name,formatted_address,formatted_phone_number,website,rating,user_ratings_total,photos,geometry,opening_hours,types';
-  const url = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeId}&fields=${fields}&key=${API_KEY}`;
-  const res = await fetch(url);
-  const data = await res.json();
-  return data.result || {};
-}
-
-function getPhotoUrl(photoRef) {
-  return `https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photo_reference=${photoRef}&key=${API_KEY}`;
+function getPhotoUrl(photoName) {
+  return `https://places.googleapis.com/v1/${photoName}/media?maxWidthPx=800&key=${API_KEY}`;
 }
 
 async function main() {
@@ -40,37 +45,39 @@ async function main() {
 
   for (const query of QUERIES) {
     console.log(`Searching: ${query}`);
-    const results = await searchPlaces(query);
+    const places = await searchPlaces(query);
+    console.log(`  Found ${places.length} results`);
 
-    for (const place of results) {
-      if (seen.has(place.place_id)) continue;
-      seen.add(place.place_id);
+    for (const place of places) {
+      const placeId = place.id;
+      if (seen.has(placeId)) continue;
+      seen.add(placeId);
 
-      const details = await getPlaceDetails(place.place_id);
-      const address = details.formatted_address || '';
+      const address = place.formattedAddress || '';
 
       // Only Cape Town / Western Cape results
       if (!address.toLowerCase().includes('cape town') &&
           !address.toLowerCase().includes('western cape')) continue;
 
-      const photoRef = details.photos?.[0]?.photo_reference;
+      const photoName = place.photos?.[0]?.name;
+      const hours = place.regularOpeningHours?.weekdayDescriptions?.join(', ') || '';
+
       raw.push({
-        place_id: place.place_id,
-        name: details.name,
+        place_id: placeId,
+        name: place.displayName?.text || '',
         address,
-        phone: details.formatted_phone_number || '',
-        website: details.website || '',
-        rating: details.rating || null,
-        review_count: details.user_ratings_total || 0,
-        lat: details.geometry?.location?.lat,
-        lng: details.geometry?.location?.lng,
-        photo_url: photoRef ? getPhotoUrl(photoRef) : '',
-        hours: details.opening_hours?.weekday_text?.join(', ') || '',
+        phone: place.internationalPhoneNumber || '',
+        website: place.websiteUri || '',
+        rating: place.rating || null,
+        review_count: place.userRatingCount || 0,
+        lat: place.location?.latitude,
+        lng: place.location?.longitude,
+        photo_url: photoName ? getPhotoUrl(photoName) : '',
+        hours,
         source: 'google'
       });
 
-      // Respect API rate limits
-      await new Promise(r => setTimeout(r, 200));
+      await new Promise(r => setTimeout(r, 100));
     }
   }
 
