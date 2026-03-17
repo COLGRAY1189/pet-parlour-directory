@@ -6,12 +6,18 @@ function makeSlug(name, area) {
 }
 
 function extractArea(address) {
-  // Format: "Street, Suburb, City, PostalCode, Country"
   const parts = address.split(',').map(s => s.trim());
-  // parts[1] is the suburb; skip if numeric (postal code) or generic
-  if (parts.length >= 2) {
-    const suburb = parts[1];
-    if (suburb && !/^\d+$/.test(suburb) && suburb.toLowerCase() !== 'cape town') return suburb;
+  // Use word boundaries so "Ln" won't match inside "Milnerton", etc.
+  const streetSuffix = /\b(Rd|St|Ave|Dr|Blvd|Way|Ln|Cres|Cir|Ctr|Close|Str)\b/i;
+  const building = /Centre\b|Mall\b|Garage\b|Court\b|^Shop\b|^our |^Mobile$/i;
+  const generic = ['cape town', 'south africa', 'western cape', 'southern suburbs'];
+  for (const part of parts) {
+    if (!part) continue;
+    if (generic.includes(part.toLowerCase())) continue;
+    if (/^\d/.test(part)) continue;        // starts with number
+    if (streetSuffix.test(part)) continue; // street descriptor
+    if (building.test(part)) continue;     // building/place name
+    return part;
   }
   return 'Cape Town';
 }
