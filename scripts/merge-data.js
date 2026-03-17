@@ -6,10 +6,27 @@ function makeSlug(name, area) {
 }
 
 function extractArea(address) {
-  const parts = address.split(',');
-  if (parts.length >= 3) return parts[parts.length - 3]?.trim() || parts[1]?.trim();
-  if (parts.length >= 2) return parts[1]?.trim();
+  // Format: "Street, Suburb, City, PostalCode, Country"
+  const parts = address.split(',').map(s => s.trim());
+  // parts[1] is the suburb; skip if numeric (postal code) or generic
+  if (parts.length >= 2) {
+    const suburb = parts[1];
+    if (suburb && !/^\d+$/.test(suburb) && suburb.toLowerCase() !== 'cape town') return suburb;
+  }
   return 'Cape Town';
+}
+
+function generateDescription(b) {
+  const type = b.is_mobile ? 'mobile pet grooming service' : 'pet grooming salon';
+  let desc = `${b.name} is a ${type} based in ${b.area}, Cape Town.`;
+  if (b.rating && b.review_count) {
+    desc += ` Rated ${b.rating}/5 based on ${b.review_count} Google reviews.`;
+  }
+  if (b.hours) {
+    const firstDay = b.hours.split(',')[0];
+    desc += ` Open ${firstDay}.`;
+  }
+  return desc;
 }
 
 function main() {
