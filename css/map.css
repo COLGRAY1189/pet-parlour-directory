@@ -1,0 +1,13 @@
+#map {
+  height: 500px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  position: sticky;
+  top: 80px;
+}
+.leaflet-popup-content-wrapper {
+  border-radius: var(--radius-sm) !important;
+  box-shadow: var(--shadow-card-hover) !important;
+}
+.map-popup__name { font-weight: 700; font-size: 0.95rem; margin-bottom: 4px; }
+.map-popup__phone { color: var(--color-primary); font-size: 0.85rem; }

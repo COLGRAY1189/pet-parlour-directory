@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://COLGRAY1189.github.io/pet-parlour-directory/sitemap.xml

@@ -1,0 +1,15 @@
+{
+  "name": "pet-parlour-scripts",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "fetch": "node fetch-places.js",
+    "sheets": "node fetch-sheets.js",
+    "merge": "node merge-data.js",
+    "generate": "node generate-pages.js"
+  },
+  "dependencies": {
+    "node-fetch": "^3.3.2",
+    "slugify": "^1.6.6"
+  }
+}

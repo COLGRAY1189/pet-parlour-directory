@@ -1,0 +1,92 @@
+/* Nav */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--color-border);
+  padding: var(--space-md) var(--space-xl);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav__logo {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+.nav__links { display: flex; gap: var(--space-lg); font-size: 0.9rem; }
+.nav__links a:hover { color: var(--color-primary); }
+.nav__cta { font-size: 0.875rem; }
+
+/* Hero */
+.hero {
+  background: linear-gradient(135deg, #1B4332 0%, #2D6A4F 60%, #52B788 100%);
+  color: white;
+  padding: var(--space-2xl) var(--space-xl);
+  text-align: center;
+}
+.hero__title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: var(--space-md);
+}
+.hero__subtitle {
+  font-size: 1.1rem;
+  opacity: 0.85;
+  margin-bottom: var(--space-xl);
+}
+.hero__search { max-width: 600px; margin: 0 auto; }
+
+/* Main layout */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 var(--space-xl); }
+.section { padding: var(--space-2xl) 0; }
+
+/* Two-column: map + listing */
+.directory-layout {
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: var(--space-xl);
+  align-items: start;
+}
+@media (max-width: 900px) {
+  .directory-layout { grid-template-columns: 1fr; }
+}
+
+/* Business grid */
+.business-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: var(--space-lg);
+}
+
+/* Footer */
+.footer {
+  background: #111;
+  color: #9CA3AF;
+  padding: var(--space-2xl) var(--space-xl);
+  text-align: center;
+  font-size: 0.875rem;
+}
+.footer__logo {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  color: white;
+  margin-bottom: var(--space-md);
+}
+
+/* Ad slot */
+.ad-slot {
+  background: var(--color-border);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-muted);
+  font-size: 0.75rem;
+  min-height: 90px;
+}

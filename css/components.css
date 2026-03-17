@@ -1,0 +1,108 @@
+/* Business Card */
+.business-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+.business-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-card-hover);
+}
+.business-card__image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  background: var(--color-border);
+}
+.business-card__body { padding: var(--space-md); }
+.business-card__name {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: var(--space-xs);
+}
+.business-card__area {
+  color: var(--color-text-muted);
+  font-size: 0.875rem;
+  margin-bottom: var(--space-sm);
+}
+.business-card__phone {
+  color: var(--color-primary);
+  font-weight: 500;
+  font-size: 0.875rem;
+}
+.badge {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+.badge--mobile { background: #FEF3C7; color: #92400E; }
+.badge--verified { background: #D1FAE5; color: #065F46; }
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: 0.625rem 1.25rem;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: 0.9rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.btn--primary {
+  background: var(--color-primary);
+  color: white;
+}
+.btn--primary:hover { background: #1B4332; }
+.btn--outline {
+  background: transparent;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+}
+
+/* Search bar */
+.search-bar {
+  display: flex;
+  gap: var(--space-sm);
+  background: white;
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-sm) var(--space-md);
+  box-shadow: var(--shadow-card);
+}
+.search-bar input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  font-family: var(--font-body);
+}
+
+/* Filter chips */
+.filter-chips { display: flex; gap: var(--space-sm); flex-wrap: wrap; }
+.chip {
+  padding: 0.375rem 1rem;
+  border-radius: 999px;
+  border: 1.5px solid var(--color-border);
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.15s;
+  background: white;
+}
+.chip.active {
+  background: var(--color-primary);
+  color: white;
+  border-color: var(--color-primary);
+}
+
+/* Star rating */
+.stars { color: #F59E0B; letter-spacing: 2px; }

@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(\"C:/Users/colgr/.claude/plugins/cache/claude-plugins-official/superpowers/5.0.4/scripts/start-server.sh\" --project-dir \"C:/Users/colgr/Documents/Claude Websites/Pet Parlour Directory\")",
+      "Bash(\"C:/Users/colgr/.claude/plugins/cache/claude-plugins-official/superpowers/5.0.4/skills/brainstorming/scripts/start-server.sh\" --project-dir \"C:/Users/colgr/Documents/Claude Websites/Pet Parlour Directory\")",
+      "mcp__plugin_context-mode_context-mode__ctx_execute_file",
+      "mcp__plugin_context-mode_context-mode__ctx_batch_execute",
+      "mcp__plugin_context-mode_context-mode__ctx_execute"
+    ]
+  }
+}
