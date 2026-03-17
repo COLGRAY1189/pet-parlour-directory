@@ -83,7 +83,7 @@ function toggleMapFullscreen() {
         fsLayer.addLayer(m);
       });
     }
-    setTimeout(() => fullscreenMap.invalidateSize(), 100);
+    setTimeout(() => fullscreenMap.invalidateSize(), 200);
   }
 }
 
