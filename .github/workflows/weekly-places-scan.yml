@@ -1,0 +1,45 @@
+name: Weekly Places Scan
+
+on:
+  schedule:
+    - cron: '0 3 * * 1'  # Every Monday at 3am UTC
+  workflow_dispatch:       # Allow manual trigger
+
+permissions:
+  contents: write
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: scripts/package.json
+
+      - name: Install script dependencies
+        run: cd scripts && npm install
+
+      - name: Fetch from Google Places API
+        env:
+          GOOGLE_PLACES_API_KEY: ${{ secrets.GOOGLE_PLACES_API_KEY }}
+        run: cd scripts && node fetch-places.js
+
+      - name: Merge new businesses into data
+        run: cd scripts && node merge-data.js
+
+      - name: Generate business HTML pages and sitemap
+        run: cd scripts && node generate-pages.js
+
+      - name: Commit and push updates
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/ businesses/ sitemap.xml
+          git diff --staged --quiet || git commit -m "chore: weekly data update [skip ci]"
+          git push
