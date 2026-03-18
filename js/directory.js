@@ -1,6 +1,16 @@
 let allBusinesses = [];
 let activeFilter = 'all';
 
+const MAPS_API_KEY = 'AIzaSyAWOSkZL0ECFm4gfKWrMf8A21wq3nXZgdw';
+
+function photoUrl(url) {
+  if (!url) return null;
+  if (url.includes('places.googleapis.com') && !url.includes('key=')) {
+    return url + '&key=' + MAPS_API_KEY;
+  }
+  return url;
+}
+
 async function loadBusinesses() {
   const res = await fetch('data/businesses.json');
   allBusinesses = await res.json();
@@ -22,7 +32,7 @@ function renderDirectory(businesses) {
   grid.innerHTML = businesses.map(b => {
     const stars = b.rating ? ('★'.repeat(Math.round(b.rating)) + '☆'.repeat(5 - Math.round(b.rating))) : '';
     const imageHtml = b.photo_url
-      ? `<img class="business-card__image" src="${b.photo_url}" alt="${b.name} pet grooming" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'business-card__image-placeholder\\'>🐾</div>'">`
+      ? `<img class="business-card__image" src="${photoUrl(b.photo_url)}" alt="${b.name} pet grooming" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'business-card__image-placeholder\\'>🐾</div>'">`
       : `<div class="business-card__image-placeholder">🐾</div>`;
     return `
     <a href="businesses/${b.slug}.html" class="business-card">
