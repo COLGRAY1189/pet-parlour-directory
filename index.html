@@ -215,12 +215,14 @@
       document.getElementById('totalCount').textContent = d.count;
     }).catch(() => {});
     // URL filter param
+    {
     const urlParams = new URLSearchParams(window.location.search);
     const urlFilter = urlParams.get('filter');
     if (urlFilter) {
       document.querySelectorAll('.chip').forEach(c => {
         c.classList.toggle('active', c.dataset.filter === urlFilter);
       });
+    }
     }
   </script>
 </body>
