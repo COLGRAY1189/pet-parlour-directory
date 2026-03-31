@@ -9,11 +9,11 @@
   <meta property="og:title" content="Cape Town Pet Parlours Directory">
   <meta property="og:description" content="Find trusted pet grooming services across Cape Town.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://COLGRAY1189.github.io/pet-parlour-directory/">
-  <link rel="canonical" href="https://COLGRAY1189.github.io/pet-parlour-directory/">
+  <meta property="og:url" content="https://pet-parlour.fun/">
+  <link rel="canonical" href="https://pet-parlour.fun/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/components.css">
@@ -24,11 +24,11 @@
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "Cape Town Pet Parlours",
-    "url": "https://COLGRAY1189.github.io/pet-parlour-directory/",
+    "url": "https://pet-parlour.fun/",
     "description": "Directory of pet grooming services in Cape Town, South Africa",
     "potentialAction": {
       "@type": "SearchAction",
-      "target": "https://COLGRAY1189.github.io/pet-parlour-directory/?q={search_term_string}",
+      "target": "https://pet-parlour.fun/?q={search_term_string}",
       "query-input": "required name=search_term_string"
     }
   }
@@ -44,25 +44,37 @@
     ]
   }
   </script>
-  <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXX" crossorigin="anonymous"></script> -->
 </head>
 <body>
 
   <!-- Navigation -->
   <nav class="nav" id="nav">
-    <div class="nav__logo">
-      <div class="nav__logo-paw">🐾</div>
+    <a href="index.html" class="nav__logo">
+      <img src="assets/logo.svg" alt="The Parlour" class="nav__logo-icon" width="34" height="34">
       The Parlour
-    </div>
+    </a>
     <div class="nav__links">
       <a href="index.html">Directory</a>
       <a href="about.html">About</a>
     </div>
-    <a href="submit.html" class="nav__cta">List Your Business</a>
+    <a href="submit.html" class="nav__cta"><span>List Your Business</span></a>
+    <button class="nav__toggle" id="navToggle" aria-label="Open navigation menu" aria-expanded="false">
+      <span class="nav__toggle-bar"></span>
+    </button>
   </nav>
+
+  <!-- Mobile Menu -->
+  <div class="nav__mobile-menu" id="mobileMenu">
+    <a href="index.html" onclick="closeMobileMenu()">Directory</a>
+    <a href="about.html" onclick="closeMobileMenu()">About</a>
+    <a href="submit.html" onclick="closeMobileMenu()">List Your Business</a>
+  </div>
 
   <!-- Hero -->
   <section class="hero">
+    <div class="hero__decor hero__decor--1"></div>
+    <div class="hero__decor hero__decor--2"></div>
+    <div class="hero__decor hero__decor--3"></div>
     <div class="hero__bg-text">Groom</div>
 
     <div class="hero__eyebrow animate-fade-up">Cape Town's Pet Parlour Directory</div>
@@ -75,18 +87,18 @@
       Discover trusted salons, mobile groomers &amp; specialist services across Cape Town and the Western Cape.
     </p>
 
-    <div class="animate-fade-up animate-delay-3">
+    <div class="hero__search-section animate-fade-up animate-delay-3">
       <div class="hero__search-label">Search by area, suburb or name</div>
       <div class="search-wrap">
         <div class="search-bar">
-          <input type="text" id="searchInput" placeholder="e.g. Sea Point, Claremont, mobile..." autocomplete="off">
-          <button class="btn btn--terracotta" onclick="handleSearch()">Search</button>
+          <input type="text" id="searchInput" placeholder="e.g. Sea Point, Claremont, mobile..." autocomplete="off" aria-label="Search for pet groomers">
+          <button class="btn btn--accent" onclick="handleSearch()">Search</button>
         </div>
       </div>
     </div>
 
-    <div class="animate-fade-up animate-delay-4" style="margin-top: 1.5rem;">
-      <div class="filter-chips">
+    <div class="animate-fade-up animate-delay-4" style="margin-top: 1.25rem;">
+      <div class="filter-chips" role="group" aria-label="Filter businesses">
         <button class="chip active" data-filter="all">All Services</button>
         <button class="chip" data-filter="mobile">Mobile Grooming</button>
         <button class="chip" data-filter="salon">Salon</button>
@@ -97,7 +109,7 @@
 
     <div class="hero__stats animate-fade-up animate-delay-5">
       <div>
-        <div class="hero__stat-num" id="totalCount">—</div>
+        <div class="hero__stat-num" id="totalCount">&mdash;</div>
         <div class="hero__stat-label">Listed businesses</div>
       </div>
       <div>
@@ -116,20 +128,23 @@
     </div>
   </section>
 
+  <!-- Section Divider -->
+  <div class="section-divider"></div>
+
   <!-- Ad Banner -->
-  <div class="container" style="padding-top: 2rem; padding-bottom: 0;">
-    <div class="ad-slot" style="min-height: 90px;">Advertisement</div>
+  <div class="container" style="padding-top: 2.5rem; padding-bottom: 0;">
+    <div class="ad-slot reveal" style="min-height: 90px;">Advertisement</div>
   </div>
 
   <!-- Directory -->
   <main class="container section">
 
-    <div class="toolbar">
+    <div class="toolbar reveal">
       <div class="toolbar__left">
         <p class="toolbar__count" id="resultsCount">Loading<strong></strong></p>
       </div>
-      <select class="sort-select" id="sortSelect" onchange="handleSort()">
-        <option value="name">Sort: A – Z</option>
+      <select class="sort-select" id="sortSelect" onchange="handleSort()" aria-label="Sort businesses">
+        <option value="name">Sort: A &ndash; Z</option>
         <option value="rating">Sort: Top Rated</option>
         <option value="area">Sort: By Area</option>
       </select>
@@ -140,25 +155,25 @@
       <div>
         <div class="business-grid" id="businessGrid">
           <div style="grid-column:1/-1; padding: 4rem 0; text-align: center; color: var(--text-muted);">
-            <div style="font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 0.5rem;">Loading…</div>
+            <div style="font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 0.5rem; color: var(--text-secondary);">Loading&hellip;</div>
             <div style="font-size: 0.875rem;">Fetching Cape Town groomers</div>
           </div>
         </div>
       </div>
 
       <!-- Map -->
-      <div class="map-sidebar" id="mapSidebar">
+      <div class="map-sidebar reveal" id="mapSidebar">
         <div style="margin-bottom: 0.75rem; display: flex; align-items: center; justify-content: space-between;">
           <div class="section-label">Map View</div>
-          <button id="mapFullscreenBtn" onclick="toggleMapFullscreen()" title="Fullscreen map" style="background:var(--green-deep);color:var(--parchment);border:none;border-radius:6px;padding:0.3rem 0.65rem;font-size:0.75rem;cursor:pointer;font-family:var(--font-body);letter-spacing:0.05em;">⤢ Fullscreen</button>
+          <button id="mapFullscreenBtn" onclick="toggleMapFullscreen()" title="Fullscreen map" style="background:var(--primary);color:var(--surface);border:none;border-radius:var(--radius-sm);padding:0.35rem 0.75rem;font-size:0.75rem;cursor:pointer;font-family:var(--font-body);letter-spacing:0.03em;font-weight:500;transition:all 0.2s ease;">Fullscreen</button>
         </div>
         <div id="map"></div>
       </div>
       <!-- Fullscreen map overlay -->
-      <div id="mapOverlay" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;z-index:9999;background:#1C2B1E;flex-direction:column;">
-        <div style="display:flex;align-items:center;justify-content:space-between;padding:0.75rem 1rem;background:var(--green-deep);flex-shrink:0;">
-          <span style="color:var(--parchment);font-family:var(--font-display);font-size:1.1rem;letter-spacing:0.05em;">Map Search</span>
-          <button onclick="toggleMapFullscreen()" style="background:var(--terracotta);color:white;border:none;border-radius:6px;padding:0.35rem 0.8rem;font-size:0.8rem;cursor:pointer;font-family:var(--font-body);">✕ Close</button>
+      <div id="mapOverlay" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;z-index:9999;background:var(--primary);flex-direction:column;">
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:0.75rem 1.25rem;background:var(--primary);flex-shrink:0;">
+          <span style="color:var(--surface);font-family:var(--font-display);font-size:1.15rem;letter-spacing:-0.01em;font-weight:500;">Map Search</span>
+          <button onclick="toggleMapFullscreen()" style="background:var(--accent);color:white;border:none;border-radius:var(--radius-sm);padding:0.4rem 1rem;font-size:0.82rem;cursor:pointer;font-family:var(--font-body);font-weight:500;">Close</button>
         </div>
         <div id="mapFullscreen" style="flex:1;min-height:0;height:calc(100vh - 48px);"></div>
       </div>
@@ -168,34 +183,36 @@
 
   <!-- Footer -->
   <footer class="footer">
-    <div class="footer__top" style="max-width: 1280px; margin: 0 auto;">
-      <div>
-        <div class="footer__logo">The Parlour</div>
-        <p class="footer__tagline">Cape Town's most complete directory of pet grooming services. Updated weekly with new businesses.</p>
-        <a href="submit.html" class="btn btn--ghost" style="margin-top: 1rem; font-size: 0.8rem;">List Your Business Free</a>
+    <div class="footer__inner">
+      <div class="footer__top">
+        <div>
+          <div class="footer__logo">The Parlour</div>
+          <p class="footer__tagline">Cape Town's most complete directory of pet grooming services. Updated weekly with new businesses.</p>
+          <a href="submit.html" class="btn btn--ghost btn--sm" style="margin-top: 0.5rem;">List Your Business Free</a>
+        </div>
+        <div>
+          <div class="footer__heading">Directory</div>
+          <ul class="footer__links">
+            <li><a href="index.html">All Groomers</a></li>
+            <li><a href="index.html?filter=mobile">Mobile Grooming</a></li>
+            <li><a href="index.html?filter=cats">Cat Grooming</a></li>
+            <li><a href="about.html">About</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer__heading">For Businesses</div>
+          <ul class="footer__links">
+            <li><a href="submit.html">List for Free</a></li>
+            <li><a href="submit.html">Update Listing</a></li>
+          </ul>
+          <div class="footer__heading" style="margin-top: 1.75rem;">Updated</div>
+          <p style="font-size: 0.82rem;" id="lastUpdated">Weekly</p>
+        </div>
       </div>
-      <div>
-        <div class="footer__heading">Directory</div>
-        <ul class="footer__links">
-          <li><a href="index.html">All Groomers</a></li>
-          <li><a href="index.html?filter=mobile">Mobile Grooming</a></li>
-          <li><a href="index.html?filter=cats">Cat Grooming</a></li>
-          <li><a href="about.html">About</a></li>
-        </ul>
+      <div class="footer__bottom">
+        <span>&copy; 2026 Pet Parlours Cape Town</span>
+        <span>Data from Google Places &amp; business submissions</span>
       </div>
-      <div>
-        <div class="footer__heading">For Businesses</div>
-        <ul class="footer__links">
-          <li><a href="submit.html">List for Free</a></li>
-          <li><a href="submit.html">Update Listing</a></li>
-        </ul>
-        <div class="footer__heading" style="margin-top: 1.5rem;">Updated</div>
-        <p style="font-size: 0.8rem;" id="lastUpdated">Weekly</p>
-      </div>
-    </div>
-    <div class="footer__bottom" style="max-width: 1280px; margin: 0 auto;">
-      <span>© 2026 Pet Parlours Cape Town</span>
-      <span>Data from Google Places &amp; business submissions</span>
     </div>
   </footer>
 
@@ -208,21 +225,44 @@
     const nav = document.getElementById('nav');
     window.addEventListener('scroll', () => {
       nav.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+
+    // Mobile menu
+    const navToggle = document.getElementById('navToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    navToggle.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('open');
+      navToggle.classList.toggle('active');
+      navToggle.setAttribute('aria-expanded', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
     });
-    // Last updated
+    function closeMobileMenu() {
+      mobileMenu.classList.remove('open');
+      navToggle.classList.remove('active');
+      navToggle.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+
+    // Reveal observer
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof observeReveals === 'function') observeReveals();
+    });
+
+    // Last updated & total count
     fetch('data/last-updated.json').then(r => r.json()).then(d => {
-      document.getElementById('lastUpdated').textContent = `Last updated: ${d.date}`;
+      document.getElementById('lastUpdated').textContent = 'Last updated: ' + d.date;
       document.getElementById('totalCount').textContent = d.count;
     }).catch(() => {});
+
     // URL filter param
     {
-    const urlParams = new URLSearchParams(window.location.search);
-    const urlFilter = urlParams.get('filter');
-    if (urlFilter) {
-      document.querySelectorAll('.chip').forEach(c => {
-        c.classList.toggle('active', c.dataset.filter === urlFilter);
-      });
-    }
+      const urlParams = new URLSearchParams(window.location.search);
+      const urlFilter = urlParams.get('filter');
+      if (urlFilter) {
+        document.querySelectorAll('.chip').forEach(c => {
+          c.classList.toggle('active', c.dataset.filter === urlFilter);
+        });
+      }
     }
   </script>
 </body>

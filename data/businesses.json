@@ -20,7 +20,8 @@
     "is_mobile": true,
     "source": "google",
     "place_id": "ChIJpUl90QldzB0RxnwcVCfl1Ok",
-    "last_updated": "2026-03-17"
+    "last_updated": "2026-03-17",
+    "local_photo": "assets/photos/cape-pets-mobile-grooming-cape-town.jpg"
   },
   {
     "id": "cindys-doggie-parlour-cape-town",
@@ -43,7 +44,8 @@
     "is_mobile": false,
     "source": "google",
     "place_id": "ChIJwa4EBEdZzB0Ro2RgiGQ9gtY",
-    "last_updated": "2026-03-17"
+    "last_updated": "2026-03-17",
+    "local_photo": "assets/photos/cindys-doggie-parlour-cape-town.jpg"
   },
   {
     "id": "clippers-grooming-parlour-cape-town",
@@ -66,7 +68,8 @@
     "is_mobile": false,
     "source": "google",
     "place_id": "ChIJ9wDfnzBCzB0R8XePCB9gGvI",
-    "last_updated": "2026-03-17"
+    "last_updated": "2026-03-17",
+    "local_photo": "assets/photos/clippers-grooming-parlour-cape-town.jpg"
   },
   {
     "id": "cutiepie-grooming-parlour-cape-town",
@@ -89,7 +92,8 @@
     "is_mobile": false,
     "source": "google",
     "place_id": "ChIJK1wjaz5RzB0RDnqKawiRwwI",
-    "last_updated": "2026-03-17"
+    "last_updated": "2026-03-17",
+    "local_photo": "assets/photos/cutiepie-grooming-parlour-cape-town.jpg"
   },
   {
     "id": "doggie-land-parlour-and-shop-cape-town",
@@ -112,7 +116,8 @@
     "is_mobile": false,
     "source": "google",
     "place_id": "ChIJeZYDy0hazB0RwcN0iDicBz0",
-    "last_updated": "2026-03-17"
+    "last_updated": "2026-03-17",
+    "local_photo": "assets/photos/doggie-land-parlour-and-shop-cape-town.jpg"
   },
   {
     "id": "elite-mobile-pet-groomers-cape-town",
@@ -135,7 +140,8 @@
     "is_mobile": true,
     "source": "google",
     "place_id": "ChIJvUxB1NNZzB0RRS479p9FsIc",
-    "last_updated": "2026-03-17"
+    "last_updated": "2026-03-17",
+    "local_photo": "assets/photos/elite-mobile-pet-groomers-cape-town.jpg"
   },
   {
     "id": "fab-u-pet-grooming-cape-town",
@@ -158,7 +164,8 @@
     "is_mobile": false,
     "source": "google",
     "place_id": "ChIJv_jAgshdzB0RCP9L2wHnKrw",
-    "last_updated": "2026-03-17"
+    "last_updated": "2026-03-17",
+    "local_photo": "assets/photos/fab-u-pet-grooming-cape-town.jpg"
   },
   {
     "id": "fluffy-tails-pet-spa-sea-point",
@@ -214,7 +221,8 @@
     "is_mobile": false,
     "source": "google",
     "place_id": "ChIJ71GEI0BazB0RZeb_RPOkXV8",
-    "last_updated": "2026-03-17"
+    "last_updated": "2026-03-17",
+    "local_photo": "assets/photos/fresh-hair-pet-salon-cape-town.jpg"
   },
   {
     "id": "groomers-dog-parlour-cape-town",
@@ -237,7 +245,8 @@
     "is_mobile": false,
     "source": "google",
     "place_id": "ChIJR65n5q5DzB0RJ5M3RMkKRes",
-    "last_updated": "2026-03-17"
+    "last_updated": "2026-03-17",
+    "local_photo": "assets/photos/groomers-dog-parlour-cape-town.jpg"
   },
   {
     "id": "jenis-pet-parlour-cape-town",
@@ -260,7 +269,8 @@
     "is_mobile": false,
     "source": "google",
     "place_id": "ChIJC3Ryci1dzB0R0oVRwEvUXS4",
-    "last_updated": "2026-03-17"
+    "last_updated": "2026-03-17",
+    "local_photo": "assets/photos/jenis-pet-parlour-cape-town.jpg"
   },
   {
     "id": "just-groom-it-pet-grooming-service-cape-town",
@@ -283,7 +293,8 @@
     "is_mobile": false,
     "source": "google",
     "place_id": "ChIJ_9hoZ7lezB0R40HZxScTSqE",
-    "last_updated": "2026-03-17"
+    "last_updated": "2026-03-17",
+    "local_photo": "assets/photos/just-groom-it-pet-grooming-service-cape-town.jpg"
   },
   {
     "id": "lovely-pets-grooming-parlour-and-mobile-services-cape-town",
@@ -306,7 +317,8 @@
     "is_mobile": true,
     "source": "google",
     "place_id": "ChIJjaTmTBFfzB0R4foIyKFtyLA",
-    "last_updated": "2026-03-17"
+    "last_updated": "2026-03-17",
+    "local_photo": "assets/photos/lovely-pets-grooming-parlour-and-mobile-services-cape-town.jpg"
   },
   {
     "id": "mobile-paws-grooming-cape-town",
@@ -329,7 +341,8 @@
     "is_mobile": true,
     "source": "google",
     "place_id": "ChIJm2B4e9wFJKwRWLwaI7bEjGs",
-    "last_updated": "2026-03-17"
+    "last_updated": "2026-03-17",
+    "local_photo": "assets/photos/mobile-paws-grooming-cape-town.jpg"
   },
   {
     "id": "pampered-paws-claremont-cape-town",
@@ -352,7 +365,8 @@
     "is_mobile": false,
     "source": "google",
     "place_id": "ChIJZVa13tlDzB0Rp4v_53LAlwQ",
-    "last_updated": "2026-03-17"
+    "last_updated": "2026-03-17",
+    "local_photo": "assets/photos/pampered-paws-claremont-cape-town.jpg"
   },
   {
     "id": "pampered-paws-mobile-grooming",
@@ -407,7 +421,8 @@
     "is_mobile": false,
     "source": "google",
     "place_id": "ChIJodaK6TtnzB0Rlavkiqz7pqI",
-    "last_updated": "2026-03-17"
+    "last_updated": "2026-03-17",
+    "local_photo": "assets/photos/pampered-paws-sea-point-cape-town.jpg"
   },
   {
     "id": "park-andbark-mobile-dog-grooming-cape-town",
@@ -430,7 +445,8 @@
     "is_mobile": true,
     "source": "google",
     "place_id": "ChIJ9TdOxlJBzB0RPP0tVw5LLO8",
-    "last_updated": "2026-03-17"
+    "last_updated": "2026-03-17",
+    "local_photo": "assets/photos/park-andbark-mobile-dog-grooming-cape-town.jpg"
   },
   {
     "id": "parlor-dog-cape-town",
@@ -453,7 +469,8 @@
     "is_mobile": false,
     "source": "google",
     "place_id": "ChIJzS9qwhpDzB0RVZP8HRbpVZ4",
-    "last_updated": "2026-03-17"
+    "last_updated": "2026-03-17",
+    "local_photo": "assets/photos/parlor-dog-cape-town.jpg"
   },
   {
     "id": "paws-doggie-parlour-cape-town",
@@ -476,7 +493,8 @@
     "is_mobile": false,
     "source": "google",
     "place_id": "ChIJN7_-LAtfzB0RSty3QbbAvGk",
-    "last_updated": "2026-03-17"
+    "last_updated": "2026-03-17",
+    "local_photo": "assets/photos/paws-doggie-parlour-cape-town.jpg"
   },
   {
     "id": "paws-pet-parlour-and-boutique-cape-town",
@@ -499,7 +517,8 @@
     "is_mobile": false,
     "source": "google",
     "place_id": "ChIJbdjfJXVfzB0R0pHLDaDE7Bk",
-    "last_updated": "2026-03-17"
+    "last_updated": "2026-03-17",
+    "local_photo": "assets/photos/paws-pet-parlour-and-boutique-cape-town.jpg"
   },
   {
     "id": "pet-groomer-pawfect-groom-dog-groomer-cat-groomer-cape-town",
@@ -522,7 +541,8 @@
     "is_mobile": false,
     "source": "google",
     "place_id": "ChIJlcwxG0mpzR0R8ugy6CxxgIk",
-    "last_updated": "2026-03-17"
+    "last_updated": "2026-03-17",
+    "local_photo": "assets/photos/pet-groomer-pawfect-groom-dog-groomer-cat-groomer-cape-town.jpg"
   },
   {
     "id": "pet-savers-or-vet-grooming-and-retail-cape-town",
@@ -545,7 +565,8 @@
     "is_mobile": false,
     "source": "google",
     "place_id": "ChIJN_fE-2W1zR0RQ9XAbZyBJBA",
-    "last_updated": "2026-03-17"
+    "last_updated": "2026-03-17",
+    "local_photo": "assets/photos/pet-savers-or-vet-grooming-and-retail-cape-town.jpg"
   },
   {
     "id": "petworld-xxl-diep-river-cape-town",
@@ -568,7 +589,8 @@
     "is_mobile": false,
     "source": "google",
     "place_id": "ChIJZTJQq_RDzB0RfxFSVtMFm7w",
-    "last_updated": "2026-03-17"
+    "last_updated": "2026-03-17",
+    "local_photo": "assets/photos/petworld-xxl-diep-river-cape-town.jpg"
   },
   {
     "id": "petworld-xxl-n1-city-cape-town",
@@ -591,7 +613,8 @@
     "is_mobile": false,
     "source": "google",
     "place_id": "ChIJebco7sZbzB0R3TRb0ZajGSU",
-    "last_updated": "2026-03-17"
+    "last_updated": "2026-03-17",
+    "local_photo": "assets/photos/petworld-xxl-n1-city-cape-town.jpg"
   },
   {
     "id": "pikkies-pets-and-dog-parlour-pty-ltd-cape-town",
@@ -614,7 +637,8 @@
     "is_mobile": false,
     "source": "google",
     "place_id": "ChIJZ53xkZ5DzB0R0pgemSKJ5Zk",
-    "last_updated": "2026-03-17"
+    "last_updated": "2026-03-17",
+    "local_photo": "assets/photos/pikkies-pets-and-dog-parlour-pty-ltd-cape-town.jpg"
   },
   {
     "id": "poochy-coo-the-ultimate-doggy-daycare-and-hotel-cape-town",
@@ -637,7 +661,8 @@
     "is_mobile": false,
     "source": "google",
     "place_id": "ChIJeVIIFeNnzB0RW2p_7YnJlbs",
-    "last_updated": "2026-03-17"
+    "last_updated": "2026-03-17",
+    "local_photo": "assets/photos/poochy-coo-the-ultimate-doggy-daycare-and-hotel-cape-town.jpg"
   },
   {
     "id": "posh-pets-mobile-grooming-cape-town",
@@ -660,7 +685,8 @@
     "is_mobile": true,
     "source": "google",
     "place_id": "ChIJbVDn0NtXzB0RO7twkVgYG2s",
-    "last_updated": "2026-03-17"
+    "last_updated": "2026-03-17",
+    "local_photo": "assets/photos/posh-pets-mobile-grooming-cape-town.jpg"
   },
   {
     "id": "ruff-diamonds-dog-grooming-cape-town",
@@ -683,7 +709,8 @@
     "is_mobile": false,
     "source": "google",
     "place_id": "ChIJWR59bOpfzB0RpraQKW0Pf2U",
-    "last_updated": "2026-03-17"
+    "last_updated": "2026-03-17",
+    "local_photo": "assets/photos/ruff-diamonds-dog-grooming-cape-town.jpg"
   },
   {
     "id": "superwoof-dog-hotel-and-daycare-or-foreshore-cape-town",
@@ -706,7 +733,8 @@
     "is_mobile": false,
     "source": "google",
     "place_id": "ChIJr7gK30ldzB0RHP5uYv5iqi4",
-    "last_updated": "2026-03-17"
+    "last_updated": "2026-03-17",
+    "local_photo": "assets/photos/superwoof-dog-hotel-and-daycare-or-foreshore-cape-town.jpg"
   },
   {
     "id": "the-dog-box-cape-town",
@@ -729,7 +757,8 @@
     "is_mobile": false,
     "source": "google",
     "place_id": "ChIJrVRd1jpnzB0RL3Wv6EqP0jk",
-    "last_updated": "2026-03-17"
+    "last_updated": "2026-03-17",
+    "local_photo": "assets/photos/the-dog-box-cape-town.jpg"
   },
   {
     "id": "the-dog-house-grooming-claremont",
@@ -782,7 +811,8 @@
     "is_mobile": false,
     "source": "google",
     "place_id": "ChIJEU6hMbtDzB0R1bZlN1Z7GZw",
-    "last_updated": "2026-03-17"
+    "last_updated": "2026-03-17",
+    "local_photo": "assets/photos/the-fluffia-pet-grooming-specialists-for-dogs-and-cats-cape-town-cape-town.jpg"
   },
   {
     "id": "the-pet-stylist-cape-town",
@@ -805,7 +835,8 @@
     "is_mobile": false,
     "source": "google",
     "place_id": "ChIJXQipl6FXzB0RyyeC7MbBl68",
-    "last_updated": "2026-03-17"
+    "last_updated": "2026-03-17",
+    "local_photo": "assets/photos/the-pet-stylist-cape-town.jpg"
   },
   {
     "id": "tip-top-dog-and-cat-groomers-cape-town",
@@ -828,7 +859,8 @@
     "is_mobile": false,
     "source": "google",
     "place_id": "ChIJA5FnYSNpzB0RohtdgYJQDio",
-    "last_updated": "2026-03-17"
+    "last_updated": "2026-03-17",
+    "local_photo": "assets/photos/tip-top-dog-and-cat-groomers-cape-town.jpg"
   },
   {
     "id": "tip-top-dog-groomers-gardens-cape-town",
@@ -851,7 +883,8 @@
     "is_mobile": false,
     "source": "google",
     "place_id": "ChIJPfEb0W9nzB0R3BOxrfaSgpk",
-    "last_updated": "2026-03-17"
+    "last_updated": "2026-03-17",
+    "local_photo": "assets/photos/tip-top-dog-groomers-gardens-cape-town.jpg"
   },
   {
     "id": "tips-and-tails-mobile-dog-groomer-cape-town",
@@ -874,7 +907,8 @@
     "is_mobile": true,
     "source": "google",
     "place_id": "ChIJf-oGV3FXzB0RbU-cGrhQsg0",
-    "last_updated": "2026-03-17"
+    "last_updated": "2026-03-17",
+    "local_photo": "assets/photos/tips-and-tails-mobile-dog-groomer-cape-town.jpg"
   },
   {
     "id": "vierlanden-paws-grooming-parlour-cape-town",
@@ -897,6 +931,7 @@
     "is_mobile": false,
     "source": "google",
     "place_id": "ChIJE7G0KLxXzB0RIQEtdSaYH1U",
-    "last_updated": "2026-03-17"
+    "last_updated": "2026-03-17",
+    "local_photo": "assets/photos/vierlanden-paws-grooming-parlour-cape-town.jpg"
   }
 ]
