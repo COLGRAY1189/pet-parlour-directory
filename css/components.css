@@ -74,6 +74,7 @@
 .nav__links a {
   position: relative;
   padding: 0.25rem 0;
+  color: #fff;
   transition: color var(--duration-normal) var(--ease-smooth);
 }
 .nav__links a::after {
@@ -86,7 +87,7 @@
   background: var(--accent);
   transition: width 0.35s var(--ease-out);
 }
-.nav__links a:hover { color: var(--text-primary); }
+.nav__links a:hover { color: var(--accent); }
 .nav__links a:hover::after { width: 100%; }
 
 .nav__cta {
