@@ -40,7 +40,9 @@ def fetch_reviews(place_id, api_key):
             "profile_photo": r.get("authorAttribution", {}).get("photoUri", ""),
             "rating": r.get("rating", 5),
             "text": r.get("text", {}).get("text", ""),
-            "time": r.get("relativePublishTimeDescription", "")
+            "time": r.get("relativePublishTimeDescription", ""),
+            "publish_time": r.get("publishTime", ""),
+            "source": "google"
         })
     return reviews
 
