@@ -74,7 +74,7 @@
 .nav__links a {
   position: relative;
   padding: 0.25rem 0;
-  color: #fff;
+  color: var(--gold-light);
   transition: color var(--duration-normal) var(--ease-smooth);
 }
 .nav__links a::after {
@@ -96,7 +96,7 @@
   letter-spacing: 0.02em;
   padding: 0.65rem 1.5rem;
   background: var(--primary);
-  color: var(--surface);
+  color: var(--gold-light);
   border-radius: var(--radius-pill);
   transition: all var(--duration-normal) var(--ease-out);
   border: 1.5px solid var(--primary);
