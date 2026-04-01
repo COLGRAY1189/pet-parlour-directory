@@ -21,6 +21,7 @@
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/components.css">
   <link rel="stylesheet" href="css/layout.css">
+  <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
   <!-- Google Analytics GA4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-8KVY7Q59MX"></script>
   <script>
@@ -128,8 +129,12 @@
     }
     .service-item:hover { box-shadow: var(--shadow-soft); }
     .service-item__icon {
-      font-size: 1.25rem;
       flex-shrink: 0;
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     .service-item__title {
       font-weight: 600;
@@ -173,7 +178,7 @@
 <body>
   <nav class="nav scrolled" id="nav">
     <a href="index.html" class="nav__logo">
-      <div class="nav__logo-paw">🐾</div>
+      <img src="assets/logo.svg" alt="The Parlour" class="nav__logo-icon" width="34" height="34">
       The Parlour
     </a>
     <div class="nav__links">
@@ -254,11 +259,11 @@
       <div class="section-label">Services Listed</div>
       <h2 style="font-family: var(--font-display); font-size: 2rem; font-weight: 600; margin-bottom: 1.5rem;">Types of pet grooming in Cape Town</h2>
       <div class="services-list">
-        <div class="service-item"><div class="service-item__icon">🚐</div><div><div class="service-item__title">Mobile Pet Grooming</div><div class="service-item__desc">The groomer comes to your home — perfect for anxious pets or busy owners.</div></div></div>
-        <div class="service-item"><div class="service-item__icon">✂️</div><div><div class="service-item__title">Full Groom</div><div class="service-item__desc">Bath, dry, cut, nail clip, ear cleaning, and finishing touches.</div></div></div>
-        <div class="service-item"><div class="service-item__icon">🛁</div><div><div class="service-item__title">Bath & Brush</div><div class="service-item__desc">Wash, blow-dry, and full brush-out. Great for maintenance between full grooms.</div></div></div>
-        <div class="service-item"><div class="service-item__icon">🐱</div><div><div class="service-item__title">Cat Grooming</div><div class="service-item__desc">Specialist feline grooming services by experienced cat-friendly groomers.</div></div></div>
-        <div class="service-item"><div class="service-item__icon">🐕</div><div><div class="service-item__title">Large Breed Grooming</div><div class="service-item__desc">Specialist groomers equipped for large and giant breeds.</div></div></div>
+        <div class="service-item"><div class="service-item__icon"><dotlottie-player src="https://assets-v2.lottiefiles.com/a/edd1a70e-1175-11ee-9235-5bfddc005234/FEWvVSLHGJ.lottie" background="transparent" speed="1" style="width:48px;height:48px" loop autoplay></dotlottie-player></div><div><div class="service-item__title">Mobile Pet Grooming</div><div class="service-item__desc">The groomer comes to your home — perfect for anxious pets or busy owners.</div></div></div>
+        <div class="service-item"><div class="service-item__icon"><dotlottie-player src="https://assets-v2.lottiefiles.com/a/7cc57f98-99ac-11ef-a582-c767cf7fa85b/gSeBwyba8F.lottie" background="transparent" speed="1" style="width:48px;height:48px" loop autoplay></dotlottie-player></div><div><div class="service-item__title">Full Groom</div><div class="service-item__desc">Bath, dry, cut, nail clip, ear cleaning, and finishing touches.</div></div></div>
+        <div class="service-item"><div class="service-item__icon"><dotlottie-player src="https://assets-v2.lottiefiles.com/a/b98e1198-1153-11ee-ab6a-9b843a1f49fe/WPdTev7k40.lottie" background="transparent" speed="1" style="width:48px;height:48px" loop autoplay></dotlottie-player></div><div><div class="service-item__title">Bath & Brush</div><div class="service-item__desc">Wash, blow-dry, and full brush-out. Great for maintenance between full grooms.</div></div></div>
+        <div class="service-item"><div class="service-item__icon"><dotlottie-player src="https://assets-v2.lottiefiles.com/a/83627cee-1153-11ee-b832-fb1242dd7de9/sSzsHHquis.lottie" background="transparent" speed="1" style="width:48px;height:48px" loop autoplay></dotlottie-player></div><div><div class="service-item__title">Cat Grooming</div><div class="service-item__desc">Specialist feline grooming services by experienced cat-friendly groomers.</div></div></div>
+        <div class="service-item"><div class="service-item__icon"><dotlottie-player src="https://assets-v2.lottiefiles.com/a/b751d1c2-4b6b-11f0-a076-d30242d692eb/VkPraOOiJL.lottie" background="transparent" speed="1" style="width:48px;height:48px" loop autoplay></dotlottie-player></div><div><div class="service-item__title">Large Breed Grooming</div><div class="service-item__desc">Specialist groomers equipped for large and giant breeds.</div></div></div>
       </div>
     </div>
 
