@@ -407,6 +407,7 @@
   }
   .nav.scrolled { padding: 0.65rem 1.25rem; }
   .nav__links { display: none; }
+  .nav__cta { display: none; }
   .nav__toggle { display: flex; }
 
   .container { padding: 0 1.25rem; }
@@ -451,10 +452,6 @@
   }
   .business-grid {
     grid-template-columns: 1fr;
-  }
-  .nav__cta {
-    font-size: 0.72rem;
-    padding: 0.5rem 1rem;
   }
   .hero__stats { gap: 1.5rem; }
 }

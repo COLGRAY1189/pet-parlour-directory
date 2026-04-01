@@ -158,7 +158,16 @@
       <a href="../index.html">Directory</a>
     </div>
     <a href="../submit.html" class="nav__cta"><span>List Free</span></a>
+    <button class="nav__toggle" id="navToggle" aria-label="Open navigation menu" aria-expanded="false">
+      <span class="nav__toggle-bar"></span>
+    </button>
   </nav>
+
+  <div class="nav__mobile-menu" id="mobileMenu">
+    <a href="../index.html" onclick="closeMobileMenu()">Directory</a>
+    <a href="../about.html" onclick="closeMobileMenu()">About</a>
+    <a href="../submit.html" onclick="closeMobileMenu()">List Your Business</a>
+  </div>
 
   <section class="biz-hero">
     <div class="biz-hero__bg">Jeni's</div>
@@ -252,6 +261,26 @@
     window.addEventListener('scroll', () => {
       document.getElementById('nav')?.classList.toggle('scrolled', window.scrollY > 60);
     }, { passive: true });
+
+    // Mobile menu
+    const navToggle = document.getElementById("navToggle");
+    const mobileMenu = document.getElementById("mobileMenu");
+    navToggle.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const isOpen = mobileMenu.classList.toggle("open");
+      navToggle.classList.toggle("active");
+      navToggle.setAttribute("aria-expanded", isOpen);
+      document.body.style.overflow = isOpen ? "hidden" : "";
+    });
+    function closeMobileMenu() {
+      mobileMenu.classList.remove("open");
+      navToggle.classList.remove("active");
+      navToggle.setAttribute("aria-expanded", "false");
+      document.body.style.overflow = "";
+    }
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && mobileMenu.classList.contains("open")) closeMobileMenu();
+    });
   </script>
   <script src="../js/reviews.js"></script>
 </body>

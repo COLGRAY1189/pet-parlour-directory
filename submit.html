@@ -618,11 +618,21 @@
     // Mobile menu
     const navToggle = document.getElementById('navToggle');
     const mobileMenu = document.getElementById('mobileMenu');
-    navToggle.addEventListener('click', () => {
+    navToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
       const isOpen = mobileMenu.classList.toggle('open');
       navToggle.classList.toggle('active');
       navToggle.setAttribute('aria-expanded', isOpen);
       document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+    function closeMobileMenu() {
+      mobileMenu.classList.remove('open');
+      navToggle.classList.remove('active');
+      navToggle.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && mobileMenu.classList.contains('open')) closeMobileMenu();
     });
 
     window.addEventListener('scroll', () => {

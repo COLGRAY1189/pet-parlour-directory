@@ -161,7 +161,7 @@
 
 /* Mobile Menu Overlay */
 .nav__mobile-menu {
-  display: none;
+  display: flex;
   position: fixed;
   top: 0;
   left: 0;
@@ -176,11 +176,13 @@
   justify-content: center;
   gap: 2rem;
   opacity: 0;
+  visibility: hidden;
   pointer-events: none;
-  transition: opacity var(--duration-slow) var(--ease-out);
+  transition: opacity var(--duration-slow) var(--ease-out), visibility var(--duration-slow) var(--ease-out);
 }
 .nav__mobile-menu.open {
   opacity: 1;
+  visibility: visible;
   pointer-events: auto;
 }
 .nav__mobile-menu a {
