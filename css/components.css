@@ -58,10 +58,11 @@
   gap: 0.6rem;
 }
 .nav__logo-icon {
-  width: 34px;
-  height: 34px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   flex-shrink: 0;
+  object-fit: cover;
 }
 .nav__links {
   display: flex;
